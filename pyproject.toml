@@ -1,0 +1,85 @@
+[project]
+    name = "nextgen-rag-system"
+    version = "0.1.0"
+    description = "Production-grade Retrieval-Augmented Generation system with semantic chunking, hybrid retrieval, reranking, and RAGBench evaluation."
+    readme = "README.md"
+    requires-python = ">=3.12"
+
+    dependencies = [
+        # API
+        "fastapi",
+        "uvicorn[standard]",
+        "python-dotenv",
+        "pydantic",
+
+        # LangChain
+        "langchain",
+        "langchain-core",
+        "langchain-community",
+        "langchain-openai",
+
+        # LLMs
+        "openai",
+
+        # Embeddings
+        "sentence-transformers",
+        "transformers",
+        "torch",
+        "accelerate",
+
+        # Vector DB
+        "qdrant-client",
+        "chromadb",
+
+        # Retrieval
+        "rank-bm25",
+        "faiss-cpu",
+
+        # Reranking
+        "FlagEmbedding",
+
+        # Chunking
+        "semantic-router",
+        "tiktoken",
+
+        # Documents
+        "pypdf",
+        "pymupdf",
+        "unstructured",
+
+        # Evaluation
+        "ragas",
+        "datasets",
+        "evaluate",
+
+        # Data
+        "numpy",
+        "pandas",
+
+        # Logging
+        "loguru",
+
+        # Serialization
+        "orjson",
+    ]
+
+    [project.optional-dependencies]
+
+    dev = [
+        "pytest",
+        "pytest-asyncio",
+        "httpx",
+        "black",
+        "ruff",
+        "mypy",
+    ]
+
+    ui = [
+        "streamlit",
+    ]
+
+    [tool.ruff]
+    line-length = 100
+
+    [tool.black]
+    line-length = 100
