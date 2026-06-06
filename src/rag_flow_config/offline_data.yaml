@@ -1,0 +1,11 @@
+extends: baseline.yaml
+
+data_loader:
+  source: local
+  dataset_name: suniltvl/ragbench
+  subset: covidqa
+  split: validation
+  data_dir: ./data/rag_bench
+  file_extension: parquet
+
+  

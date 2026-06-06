@@ -1,0 +1,38 @@
+experiment:
+  name: baseline_rag
+  version: 1.0
+
+pipeline:
+  query_classification: false
+  reranking: false
+  summarization: false
+
+chunking:
+  strategy: recursive # fixed_size, recursive, semantic, sentence
+  chunk_size: 100
+  chunk_overlap: 20
+
+embedding:
+  provider: huggingface
+  model: BAAI/bge-small-en-v1.5
+
+vector_store:
+  provider: chroma
+  collection_name: baseline
+
+retrieval:
+  type: similarity
+  top_k: 5
+
+generator:
+  provider: openai
+  model: gpt-4o-mini
+  temperature: 0
+
+evaluation:
+  dataset: ragbench
+  metrics:
+    - context_relevance
+    - context_utilization
+    - answer_faithfulness
+    - answer_completeness

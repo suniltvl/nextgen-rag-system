@@ -1,0 +1,5 @@
+extends: baseline.yaml
+
+retrieval:
+  type: hybrid
+  alpha: 0.3

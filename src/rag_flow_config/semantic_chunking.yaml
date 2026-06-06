@@ -1,0 +1,5 @@
+extends: baseline.yaml
+
+chunking:
+  strategy: semantic
+  model: sentence-transformers/all-mpnet-base-v2
