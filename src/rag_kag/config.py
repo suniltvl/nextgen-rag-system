@@ -49,6 +49,7 @@ class SemanticChunkerCfg(BaseModel):
     breakpoint_threshold: float = 0.75  # cosine-distance breakpoint
     min_sentences: int = 2
     max_sentences: int = 12
+    model_name: str = "BAAI/bge-small-en-v1.5"
 
 
 ChunkerCfg = SlidingWindowChunkerCfg | SentenceAwareChunkerCfg | SemanticChunkerCfg
