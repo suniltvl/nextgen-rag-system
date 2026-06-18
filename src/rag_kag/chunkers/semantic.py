@@ -37,33 +37,6 @@ class SemanticChunker(Chunker):
         self.sentence_transformer = SentenceTransformer(self.model_name)
         self.breakpoint_threshold = breakpoint_threshold # Default threshold, can be made configurable in the future
 
-    # def _split_into_sentences(self, text: str) -> List[str]:
-    #     """
-    #     Splits the input text into a list of sentences.
-    #     This is a basic implementation; a more robust solution would use NLTK's `sent_tokenize` or SpaCy.
-    #     """
-    #     sentences = []
-    #     temp_sentence = ""
-    #     # Add a space to ensure sentences ending at the very end of the text get processed
-    #     text_with_terminator = text + " "
-    #     for char in text_with_terminator:
-    #         temp_sentence += char
-    #         if char in ['.', '?', '!']:
-    #             cleaned_sentence = temp_sentence.strip()
-    #             if cleaned_sentence:
-    #                 sentences.append(cleaned_sentence)
-    #             temp_sentence = ""
-    #         elif char == '\n': # Treat newlines as potential sentence breaks too
-    #             cleaned_sentence = temp_sentence.strip()
-    #             if cleaned_sentence and cleaned_sentence != '\n':
-    #                 sentences.append(cleaned_sentence.replace('\n', ' ')) # Replace newline within sentence
-    #             temp_sentence = ""
-    #     # Final check for any remaining text that didn't end with a punctuation
-    #     if temp_sentence.strip():
-    #         sentences.append(temp_sentence.strip().replace('\n', ' ')) # Replace newline within sentence
-
-    #     return [s.strip() for s in sentences if s.strip()]
-
     def chunk(self, example: Example) -> list[Chunk]:
         """
         Chunks the given text into semantically coherent segments.
@@ -74,51 +47,59 @@ class SemanticChunker(Chunker):
         Returns:
             list[Chunk]: A list of Chunk objects, each representing a semantically coherent text segment.
         """
-        for doc_idx, doc_text in enumerate(example.documents):
-            sentences = (
-                example.documents_sentences[doc_idx]
-                if doc_idx < len(example.documents_sentences)
-                else []
-            )
-        print(sentences[0],'\n',sentences[1])
-        if not sentences:
-            return []
+        all_final_chunks = []
+        global_chunk_counter = 0
+        effective_max_chunk_sentences = 12 # Hardcoded limit as per user's request
 
-        # Add the condition to check sentence length
-        if len(sentences) < self.min_sentences or len(sentences) > self.max_sentences:
-            raise ValueError(
-                f"Number of sentences ({len(sentences)}) is outside the allowed range "
-                f"[{self.min_sentences}, {self.max_sentences}]")
+        for doc_idx, doc_sentences_list in enumerate(example.documents_sentences):
+            sentences = doc_sentences_list
 
-        # Embed sentences. Use CUDA if available for faster computation.
-        device = 'cuda' if torch.cuda.is_available() else 'cpu'
-        sentence_embeddings = self.sentence_transformer.encode(sentences, convert_to_tensor=True, device=device)
+            if not sentences:
+                continue
 
-        # Calculate cosine similarities between adjacent sentences
-        similarities = []
-        for i in range(len(sentence_embeddings) - 1):
-            sim = util.cos_sim(sentence_embeddings[i], sentence_embeddings[i+1])
-            similarities.append(sim.item())
+            # Extract string content from Sentence objects
+            string_sentences = [s.text for s in sentences]
 
-        # Find breakpoints where similarity drops below threshold
-        # A breakpoint index 'i' means that sentences[i] and sentences[i+1] are dissimilar,
-        # so a new chunk should ideally start after sentences[i].
-        breakpoints = [i for i, sim in enumerate(similarities) if sim < self.breakpoint_threshold]
+            # Embed sentences. Use CUDA if available for faster computation.
+            device = 'cuda' if torch.cuda.is_available() else 'cpu'
+            sentence_embeddings = self.sentence_transformer.encode(string_sentences, convert_to_tensor=True, device=device)
 
-        chunks = []
-        current_sentence_idx = 0
-        for bp in breakpoints:
-            # Form a chunk from `current_sentence_idx` up to and including `bp`
-            chunk_sentences = sentences[current_sentence_idx : bp + 1]
-            chunk_text = " ".join(chunk_sentences)
-            if chunk_text:
-                chunks.append(Chunk(content=chunk_text))
-            current_sentence_idx = bp + 1
+            # Calculate cosine similarities between adjacent sentences
+            similarities = []
+            for i in range(len(sentence_embeddings) - 1):
+                sim = util.cos_sim(sentence_embeddings[i], sentence_embeddings[i+1])
+                similarities.append(sim.item())
 
-        # Add the last chunk if there are any remaining sentences
-        if current_sentence_idx < len(sentences):
-            chunk_text = " ".join(sentences[current_sentence_idx:])
-            if chunk_text:
-                chunks.append(Chunk(content=chunk_text))
+            # Find breakpoints where similarity drops below threshold
+            breakpoints = [i for i, sim in enumerate(similarities) if sim < self.breakpoint_threshold]
 
-        return chunks
+            current_start_idx = 0
+
+            # Process segments defined by semantic breakpoints
+            for bp in breakpoints:
+                segment_to_process = sentences[current_start_idx : bp + 1]
+                for i in range(0, len(segment_to_process), effective_max_chunk_sentences):
+                    sub_chunk_sentences = segment_to_process[i : i + effective_max_chunk_sentences]
+                    if len(sub_chunk_sentences) >= self.min_sentences:
+                        chunk_text = " ".join([s.text for s in sub_chunk_sentences])
+                        current_sentence_keys = [s.key for s in sub_chunk_sentences]
+                        chunk_id = f"{example.id}-{doc_idx}-{global_chunk_counter}"
+                        chunk_metadata = {"example_id": example.id, "doc_index": doc_idx}
+                        all_final_chunks.append(Chunk(chunk_id, chunk_text, doc_idx, current_sentence_keys, chunk_metadata))
+                        global_chunk_counter += 1
+                current_start_idx = bp + 1
+
+            # Process any remaining sentences after the last breakpoint for the current document
+            remaining_sentences_doc = sentences[current_start_idx:]
+            if remaining_sentences_doc:
+                for i in range(0, len(remaining_sentences_doc), effective_max_chunk_sentences):
+                    sub_chunk_sentences = remaining_sentences_doc[i : i + effective_max_chunk_sentences]
+                    if len(sub_chunk_sentences) >= self.min_sentences:
+                        chunk_text = " ".join([s.text for s in sub_chunk_sentences])
+                        current_sentence_keys = [s.key for s in sub_chunk_sentences]
+                        chunk_id = f"{example.id}-{doc_idx}-{global_chunk_counter}"
+                        chunk_metadata = {"example_id": example.id, "doc_index": doc_idx}
+                        all_final_chunks.append(Chunk(chunk_id, chunk_text, doc_idx, current_sentence_keys, chunk_metadata))
+                        global_chunk_counter += 1
+
+        return all_final_chunks
