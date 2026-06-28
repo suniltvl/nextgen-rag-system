@@ -1,38 +1,36 @@
-"""TRACe evaluator — V1 implementation derived from sentence-level annotations.
+"""TRACe evaluator — sentence-key metrics aligned with RAGBench (arXiv:2407.11005).
 
-This is the deliverable the proposal calls out as the most important. The
-mentor brief is explicit: "implement the metrics from the formulas" — no
-RAGAS/TruLens wrapping.
+Formulas (sentence / substring level, aggregated as key counts):
 
-Definitions (RAGBench paper, arXiv:2407.11005):
+  context_relevance   = |R ∩ retrieved| / |retrieved|
+  context_utilization = |U ∩ retrieved| / |retrieved|
+  completeness        = |R ∩ U| / |R|
+  adherence           = 1 if every response sentence is grounded in context, else 0
 
-  context_relevance  = |relevant ∩ retrieved_sentences| / |retrieved_sentences|
-                       (fraction of retrieved context that's actually useful)
+Where R = relevant sentence keys, U = utilized sentence keys (in the answer),
+and ``retrieved`` = keys present in retrieved chunks.
 
-  context_utilization = |utilized ∩ retrieved_sentences| / |retrieved_sentences|
-                       (fraction of retrieved context the answer actually used)
-
-  completeness        = |relevant ∩ retrieved_sentences| / |relevant|
-                       (fraction of relevant info that *made it through* retrieval
-                       and is therefore even available to be in the answer)
-
-  adherence           ∈ {0, 1}
-                       (whether every claim in the answer is grounded in the
-                       retrieved context — V1 uses an NLI-free heuristic; we
-                       upgrade to an LLM-judge in Week 3)
-
-The first three metrics are deterministic given retrieved chunks + dataset
-annotations, which lets us validate them against the RAGBench reference
-score fields (`relevance_score`, `utilization_score`, `completeness_score`)
-on dataset-provided responses before we run any model. That's the validation
-strategy from the proposal §5.1 step 5.
+``utilized_keys`` mode:
+  * ``infer`` (default) — infer U from answer overlap with retrieved chunks
+    (pipeline runs with model-generated answers).
+  * ``dataset`` — use RAGBench ``all_utilized_sentence_keys`` (reference validation
+    with the dataset's annotated response).
 """
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
+from typing import Literal
 
 from rag_kag.types import Example, RetrievedChunk, TraceMetrics
+
+UtilizedKeysMode = Literal["infer", "dataset"]
+
+# Minimum token overlap to treat a chunk sentence as "used" in the answer.
+_TOKEN_OVERLAP_FRAC = 0.25
+# Per response sentence, minimum overlap with retrieved text to count as grounded.
+_ADHERENCE_SENTENCE_FRAC = 0.3
 
 
 def _safe_div(num: float, denom: float) -> float:
@@ -41,11 +39,7 @@ def _safe_div(num: float, denom: float) -> float:
 
 @dataclass(slots=True)
 class TraceInputs:
-    """Bundle of what TRACe needs for a single example.
-
-    Pulled out so future evaluators (LLM-judge adherence, claim-level
-    completeness, etc.) can share one input shape.
-    """
+    """Bundle of what TRACe needs for a single example."""
 
     example: Example
     retrieved: list[RetrievedChunk]
@@ -53,20 +47,21 @@ class TraceInputs:
 
 
 class TraceEvaluator:
-    """Sentence-key-based TRACe metrics. V1 — no LLM required."""
+    """Sentence-key TRACe metrics."""
 
-    def __init__(self, *, ignore_missing_keys: bool = True):
-        # Some subsets (HAGRID, MS Marco) have sparser sentence-key
-        # annotations. ignore_missing_keys=True returns 0.0 instead of
-        # raising when a metric's denominator is empty — matches the
-        # convention in the RAGBench reference scorer.
+    def __init__(
+        self,
+        *,
+        utilized_keys: UtilizedKeysMode = "infer",
+        ignore_missing_keys: bool = True,
+    ):
+        self.utilized_keys = utilized_keys
         self.ignore_missing_keys = ignore_missing_keys
 
     def score(self, inputs: TraceInputs) -> TraceMetrics:
         ex = inputs.example
-
         relevant = set(ex.all_relevant_sentence_keys)
-        utilized = set(ex.all_utilized_sentence_keys)
+        utilized = self._utilized_keys(inputs)
 
         retrieved_keys: set[str] = set()
         for r in inputs.retrieved:
@@ -74,11 +69,17 @@ class TraceEvaluator:
 
         relevant_in_retrieved = relevant & retrieved_keys
         utilized_in_retrieved = utilized & retrieved_keys
+        relevant_in_utilized = relevant & utilized
 
         ctx_relevance = _safe_div(len(relevant_in_retrieved), len(retrieved_keys))
         ctx_utilization = _safe_div(len(utilized_in_retrieved), len(retrieved_keys))
-        completeness = _safe_div(len(relevant_in_retrieved), len(relevant))
-        adherence = self._adherence_heuristic(inputs)
+        # RAGBench sets completeness=1.0 when there are no relevant keys (vacuous).
+        completeness = (
+            1.0
+            if not relevant
+            else _safe_div(len(relevant_in_utilized), len(relevant))
+        )
+        adherence = self._adherence(inputs)
 
         return TraceMetrics(
             context_relevance=ctx_relevance,
@@ -87,23 +88,12 @@ class TraceEvaluator:
             adherence=adherence,
         )
 
-    # --- adherence ------------------------------------------------------
+    def _utilized_keys(self, inputs: TraceInputs) -> set[str]:
+        if self.utilized_keys == "dataset":
+            return set(inputs.example.all_utilized_sentence_keys)
+        return _infer_utilized_keys(inputs.answer, inputs.retrieved)
 
-    @staticmethod
-    def _adherence_heuristic(inputs: TraceInputs) -> float:
-        """V1 adherence proxy.
-
-        A non-trivial adherence score requires per-claim NLI against the
-        retrieved context, which is too heavy for V1. Until the LLM-judge
-        version lands (Week 3), we use a coarse signal: the answer is
-        considered "adherent" if at least one retrieved chunk shares a
-        meaningful overlap with it. This is intentionally lenient — the
-        purpose of V1 adherence is to be present in the schema, not to
-        replace the eventual LLM judge.
-
-        Returns 0.0 if the model emitted the explicit refusal phrase
-        (refusing is always adherent in TRACe semantics).
-        """
+    def _adherence(self, inputs: TraceInputs) -> float:
         from rag_kag.generators.prompts import RGB_REJECTION_PHRASE
 
         answer = inputs.answer.strip()
@@ -111,24 +101,56 @@ class TraceEvaluator:
             return 0.0
         if RGB_REJECTION_PHRASE.lower() in answer.lower():
             return 1.0
-        # Cheap n-gram overlap between answer and any retrieved chunk.
-        ans_tokens = _tokens(answer)
-        if not ans_tokens:
+
+        # Reference validation: RAGBench adherence == no unsupported response sentences.
+        if self.utilized_keys == "dataset":
+            return 1.0 if not inputs.example.unsupported_response_sentence_keys else 0.0
+
+        retrieved_text = " ".join(r.chunk.text for r in inputs.retrieved)
+        retrieved_tokens = _tokens(retrieved_text)
+        if not retrieved_tokens:
             return 0.0
-        for r in inputs.retrieved:
-            chunk_tokens = _tokens(r.chunk.text)
-            if not chunk_tokens:
+
+        sentences = _split_sentences(answer)
+        if not sentences:
+            return 0.0
+
+        for sentence in sentences:
+            sent_tokens = _tokens(sentence)
+            if not sent_tokens:
                 continue
-            overlap = len(ans_tokens & chunk_tokens) / len(ans_tokens)
-            if overlap >= 0.3:
-                return 1.0
-        return 0.0
+            overlap = len(sent_tokens & retrieved_tokens) / len(sent_tokens)
+            if overlap < _ADHERENCE_SENTENCE_FRAC:
+                return 0.0
+        return 1.0
+
+
+def _infer_utilized_keys(answer: str, retrieved: list[RetrievedChunk]) -> set[str]:
+    """Sentence keys from retrieved chunks whose text overlaps the answer."""
+    ans_tokens = _tokens(answer)
+    if not ans_tokens:
+        return set()
+    utilized: set[str] = set()
+    for r in retrieved:
+        chunk_tokens = _tokens(r.chunk.text)
+        if not chunk_tokens:
+            continue
+        ans_cov = len(ans_tokens & chunk_tokens) / len(ans_tokens)
+        chunk_cov = len(ans_tokens & chunk_tokens) / len(chunk_tokens)
+        if ans_cov >= _TOKEN_OVERLAP_FRAC or chunk_cov >= _TOKEN_OVERLAP_FRAC:
+            utilized.update(r.chunk.sentence_keys)
+    return utilized
+
+
+def _split_sentences(text: str) -> list[str]:
+    parts = re.split(r"(?<=[.!?])\s+|\n+", text.strip())
+    return [p.strip() for p in parts if p.strip()]
 
 
 def _tokens(text: str) -> set[str]:
     """Lowercased alphanum tokens, length >= 3 (drops articles/punct)."""
     out: set[str] = set()
-    word = []
+    word: list[str] = []
     for ch in text.lower():
         if ch.isalnum():
             word.append(ch)

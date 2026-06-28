@@ -171,10 +171,26 @@ class Pipeline:
         # we can sanity-check our evaluator (proposal §5.1 step 5).
         ref_keys = ("relevance_score", "utilization_score", "completeness_score", "adherence_score")
         reference_avg: dict[str, float] = {}
+        trace_keys = (
+            ("context_relevance", "relevance_score"),
+            ("context_utilization", "utilization_score"),
+            ("completeness", "completeness_score"),
+            ("adherence", "adherence_score"),
+        )
         for k in ref_keys:
             vals = [r.reference_scores[k] for r in results if k in r.reference_scores]
             if vals:
                 reference_avg[k] = sum(vals) / len(vals)
+
+        avg_delta: dict[str, float] = {}
+        for ours_key, ref_key in trace_keys:
+            deltas: list[float] = []
+            for r in results:
+                if ref_key not in r.reference_scores:
+                    continue
+                deltas.append(r.metrics.__dict__[ours_key] - r.reference_scores[ref_key])
+            if deltas:
+                avg_delta[ours_key] = sum(deltas) / len(deltas)
 
         return {
             "name": self.cfg.name,
@@ -189,6 +205,7 @@ class Pipeline:
                 "adherence": avg_metrics.adherence,
             },
             "avg_reference": reference_avg,
+            "avg_delta": avg_delta,
             "avg_latency_s": sum(r.latency_s for r in results) / len(results),
         }
 

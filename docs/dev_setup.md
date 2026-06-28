@@ -143,6 +143,24 @@ jq '.avg_trace, .avg_reference' experiments/runs/v1_baseline__covidqa__7/summary
 rag-kag list-subsets
 ```
 
+### Download RAGBench data (phase 1.1)
+
+```bash
+# Automated (works off corporate VPN / without Zscaler MITM)
+rag-kag download-data --split train
+
+# Check what's on disk
+rag-kag data-status
+
+# If download fails (Zscaler), see docs/eda/DOWNLOAD.md for browser URLs
+```
+
+### Run dataset EDA
+
+```bash
+rag-kag eda -o docs/eda/ragbench_eda.md --json experiments/eda/ragbench_stats.json
+```
+
 ### Run tests
 
 ```bash

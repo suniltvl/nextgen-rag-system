@@ -170,6 +170,9 @@ class RAGBenchLoader:
             response=row.get("response"),
             all_relevant_sentence_keys=_to_str_list(row.get("all_relevant_sentence_keys")),
             all_utilized_sentence_keys=_to_str_list(row.get("all_utilized_sentence_keys")),
+            unsupported_response_sentence_keys=_to_str_list(
+                row.get("unsupported_response_sentence_keys")
+            ),
             reference_scores=scores,
             raw=row,
         )

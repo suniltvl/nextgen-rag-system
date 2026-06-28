@@ -58,6 +58,7 @@ class Example:
     response: str | None = None  # dataset-provided generated response
     all_relevant_sentence_keys: list[str] = field(default_factory=list)
     all_utilized_sentence_keys: list[str] = field(default_factory=list)
+    unsupported_response_sentence_keys: list[str] = field(default_factory=list)
     # Reference scores from the dataset (used to validate our evaluator)
     reference_scores: dict[str, float] = field(default_factory=dict)
     raw: dict[str, Any] = field(default_factory=dict, repr=False)
