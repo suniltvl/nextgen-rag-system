@@ -5,6 +5,8 @@ from src.rag_components.data_loaders import DataLoaderFactory
 from src.rag_components.chunkers import ChunkingFactory
 from src.utils.logger import Logger
 from langchain_core.documents import Document
+from src.utils.device import DeviceManager
+from src.rag_components.embeddings.factory import EmbedderFactory
 
 env_settings = None
 config = None
@@ -22,13 +24,18 @@ def hello():
     Simple function to print a hello message to the console. 
     This is just for testing purposes and can be removed later.
     """
-    logger.info("========================================")
+    logger.info("=" * 90)
     logger.info("Hello from real-world-rag-system!")
-    logger.info("========================================")
+    logger.info("=" * 90)
+
+def get_device():
+    """
+    Get the device to use for computation
+    """
+    return DeviceManager.get_device()
 
 
 def main():
-    load_config_from_file()
 
     doc_data = data_loader()
     chunker_instance = chunker()
@@ -105,10 +112,30 @@ def chunker():
     chunker = ChunkingFactory.create(config.chunking)
     return chunker
     
+def embedder():
+    """
+    Embedding component of the RAG system. This function initializes the embedder based on the configuration and embeds the data.
+    """
+    logger.info("embedding initialized")
+    embedder = EmbedderFactory.get_embedder(
+        config.embedding.provider,
+        config.embedding.model
+    )
+
+    print(embedder.embed_query("Hello world"))
+    return embedder
 
 
 if __name__ == "__main__":
     logger = Logger() # Initialize logger before loading environment settings        
+    
     hello() # Print hello message to console
     load_env_settings() # Load environment settings after logger is initialized
-    main() # Run the main function
+    
+    load_config_from_file()
+
+    # device = get_device()
+    # logger.info(f"Using device: {device}")
+
+    embedder()
+    # main() # Run the main function

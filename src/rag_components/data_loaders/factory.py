@@ -2,7 +2,7 @@
 
 from .huggingface_loader import HuggingFaceDataLoader
 from .local_loader import LocalLoader
-from .web_loader import WebLoader
+# from .web_loader import WebLoader
 from src.models import DataLoaderSource
 
 
@@ -31,6 +31,9 @@ class DataLoaderFactory:
             )
 
         elif source == DataLoaderSource.WEB:
-            return WebLoader(config.url)
+            # return WebLoader(config.url)
+            pass
 
-        raise ValueError(f"Unsupported source: {source}")
+        else:
+            print(f"Unsupported source: {source}")
+            raise ValueError(f"Unsupported source: {source}")

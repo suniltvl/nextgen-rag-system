@@ -26,3 +26,10 @@ class RecursiveChunker(BaseChunker):
             print(f"Initializing RecursiveChunker splitter_text={splitter_text}")   
             chunks.append(splitter_text)
         return chunks
+    
+    def chunk_list(self, texts: list[str]) -> list[str]:
+        all_chunks = []
+        for text in texts:
+            chunks = self.chunk(text)
+            all_chunks.extend(chunks)
+        return all_chunks

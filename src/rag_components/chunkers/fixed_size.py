@@ -35,6 +35,13 @@ class FixedSizeChunker(BaseChunker):
 
             return chunks
     
+    def chunk_list(self, texts: list[str]) -> list[str]:
+        all_chunks = []
+        for text in texts:
+            chunks = self.chunk(text)
+            all_chunks.extend(chunks)
+        return all_chunks
+    
     # def chunk(self, text: str) -> list[str]:
     #     self.debug(f"Making chunks for text of length {len(text)}")
     #     return self.chunk(text)

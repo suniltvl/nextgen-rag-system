@@ -31,11 +31,16 @@ class RetrievalType(str, Enum):
     SIMILARITY = "similarity"
     MMR = "mmr"
     HYBRID = "hybrid"
+    BM25 = "bm25"
 
 class GeneratorProvider(str, Enum):
     OPENAI = "openai"
     ANTHROPIC = "anthropic"
     OLLAMA = "ollama"
+    GOOGLE = "google"
+    LMSTUDIO = "lmstudio"
+    OPENROUTER = "openrouter"
+    CEREBRAS = "cerebras"
 
 class DataSetType(str, Enum):
     TRAIN = "train"

@@ -20,12 +20,13 @@ class DataLoaderConfig(BaseModel):
     source: DataLoaderSource = DataLoaderSource.LOCAL
     path: str | None = None
     dataset_name: str | None = None
-    subset: str | None = None
-    split: str | None = None
-    cache_dir: str | None = None
+    subset: str | None = None 
+    split: str | list[str] | None = None
+    cache_dir: str | None = None # For HuggingFace loader to specify the cache directory
     data_dir: str | None = None # For Local loader to specify the data directory
-    streaming: bool = True
-    file_extension: str = ""
+    streaming: bool = True # For HuggingFace loader to stream data
+    file_extension: str = "" # For Local loader to specify the file extension
+    base_url: str | None = None # For Web loader to specify the base URL
 
 
 class ChunkingConfig(BaseModel):
@@ -45,6 +46,7 @@ class VectorStoreConfig(BaseModel):
     provider: VectorStoreProvider = VectorStoreProvider.CHROMA
 
     collection_name: str
+    persist_directory: str | None = None
 
 
 class RetrievalConfig(BaseModel):
@@ -56,8 +58,10 @@ class RetrievalConfig(BaseModel):
 class GeneratorConfig(BaseModel):
     provider: GeneratorProvider
 
-    model: str
+    model_name: str
     temperature: float = Field(ge=0.0, le=2.0)
+    base_url: str | None = None
+    api_key: str | None = None
 
 
 class EvaluationConfig(BaseModel):

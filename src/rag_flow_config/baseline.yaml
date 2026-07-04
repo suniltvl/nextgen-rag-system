@@ -9,8 +9,8 @@ pipeline:
 
 chunking:
   strategy: recursive # fixed_size, recursive, semantic, sentence
-  chunk_size: 100
-  chunk_overlap: 20
+  chunk_size: 512
+  chunk_overlap: 100
 
 embedding:
   provider: huggingface
@@ -19,15 +19,19 @@ embedding:
 vector_store:
   provider: chroma
   collection_name: baseline
+  persist_directory: ./db/chroma_db
 
 retrieval:
   type: similarity
   top_k: 5
 
 generator:
-  provider: openai
-  model: gpt-4o-mini
+  provider: lmstudio
+  # model_name: "mistral-7b-instruct-v0.3" #"google/gemma-4-e2b"
+  model_name: "google/gemma-4-e2b"
   temperature: 0
+  api_key: ${LMSTUDIO_API_KEY}
+  base_url: ${LMSTUDIO_BASE_URL}
 
 evaluation:
   dataset: ragbench

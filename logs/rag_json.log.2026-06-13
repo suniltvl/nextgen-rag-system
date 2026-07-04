@@ -1,0 +1,257 @@
+{"asctime": "2026-06-13 12:53:43,155", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 12:53:45,338", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 12:53:45,339", "levelname": "INFO", "name": "real_world_rag", "message": "Hello from real-world-rag-system!"}
+{"asctime": "2026-06-13 12:53:45,341", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 12:54:12,415", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml"}
+{"asctime": "2026-06-13 12:56:52,702", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 12:56:52,712", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 12:56:52,714", "levelname": "INFO", "name": "real_world_rag", "message": "Hello from real-world-rag-system!"}
+{"asctime": "2026-06-13 12:56:52,714", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 12:59:46,752", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml"}
+{"asctime": "2026-06-13 13:01:02,790", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml"}
+{"asctime": "2026-06-13 13:01:32,278", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 13:01:32,287", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 13:01:32,287", "levelname": "INFO", "name": "real_world_rag", "message": "Hello from real-world-rag-system!"}
+{"asctime": "2026-06-13 13:01:32,289", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 13:01:34,989", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml"}
+{"asctime": "2026-06-13 13:01:34,995", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='emanual' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension=''"}
+{"asctime": "2026-06-13 13:02:19,414", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml"}
+{"asctime": "2026-06-13 13:02:19,418", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='emanual' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension=''"}
+{"asctime": "2026-06-13 13:02:20,483", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml"}
+{"asctime": "2026-06-13 13:02:20,486", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='emanual' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension=''"}
+{"asctime": "2026-06-13 13:02:31,449", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 13:02:31,461", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 13:02:31,462", "levelname": "INFO", "name": "real_world_rag", "message": "Hello from real-world-rag-system!"}
+{"asctime": "2026-06-13 13:02:31,463", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 13:02:31,486", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml"}
+{"asctime": "2026-06-13 13:02:31,492", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='emanual' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension=''"}
+{"asctime": "2026-06-13 13:02:44,554", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 13:02:44,565", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 13:02:44,567", "levelname": "INFO", "name": "real_world_rag", "message": "Hello from real-world-rag-system!"}
+{"asctime": "2026-06-13 13:02:44,568", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 13:02:44,584", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml"}
+{"asctime": "2026-06-13 13:02:44,590", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='emanual' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension=''"}
+{"asctime": "2026-06-13 13:08:41,825", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml"}
+{"asctime": "2026-06-13 13:08:41,829", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='emanual' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension=''"}
+{"asctime": "2026-06-13 13:29:55,912", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... rag_flow_config/baseline.yaml"}
+{"asctime": "2026-06-13 13:30:29,453", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/baseline.yaml"}
+{"asctime": "2026-06-13 13:30:29,455", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: None"}
+{"asctime": "2026-06-13 13:30:46,139", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml"}
+{"asctime": "2026-06-13 13:30:46,144", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='emanual' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension=''"}
+{"asctime": "2026-06-13 13:31:09,847", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/hybrid.yaml"}
+{"asctime": "2026-06-13 13:31:20,444", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/offline.yaml"}
+{"asctime": "2026-06-13 13:31:27,549", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/offline_data.yaml"}
+{"asctime": "2026-06-13 13:31:27,551", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.LOCAL: 'local'> path=None dataset_name='suniltvl/ragbench' subset='covidqa' split='validation' cache_dir=None data_dir='./data/rag_bench' streaming=True file_extension='parquet'"}
+{"asctime": "2026-06-13 15:02:35,021", "levelname": "INFO", "name": "real_world_rag", "message": "Data loader initialized"}
+{"asctime": "2026-06-13 15:02:35,024", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 15:02:35,026", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: <src.rag_components.data_loaders.local_loader.LocalLoader object at 0x0000021E393F6CC0>"}
+{"asctime": "2026-06-13 15:02:35,027", "levelname": "INFO", "name": "real_world_rag", "message": "Loading local data..."}
+{"asctime": "2026-06-13 15:13:03,297", "levelname": "INFO", "name": "real_world_rag", "message": "Data loader initialized"}
+{"asctime": "2026-06-13 15:13:03,298", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 15:13:03,303", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: <src.rag_components.data_loaders.local_loader.LocalLoader object at 0x0000021E3A68B1A0>"}
+{"asctime": "2026-06-13 15:13:03,304", "levelname": "INFO", "name": "real_world_rag", "message": "Loading local data..."}
+{"asctime": "2026-06-13 15:14:44,878", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 15:14:44,909", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 15:14:44,911", "levelname": "INFO", "name": "real_world_rag", "message": "Hello from real-world-rag-system!"}
+{"asctime": "2026-06-13 15:14:44,912", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 15:14:44,978", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/offline_data.yaml"}
+{"asctime": "2026-06-13 15:14:44,985", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.LOCAL: 'local'> path=None dataset_name='suniltvl/ragbench' subset='covidqa' split='validation' cache_dir=None data_dir='./data/rag_bench' streaming=True file_extension='parquet'"}
+{"asctime": "2026-06-13 15:15:13,776", "levelname": "INFO", "name": "real_world_rag", "message": "Data loader initialized"}
+{"asctime": "2026-06-13 15:15:13,780", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 15:15:13,782", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: <src.rag_components.data_loaders.local_loader.LocalLoader object at 0x00000295B2626AB0>"}
+{"asctime": "2026-06-13 15:15:13,783", "levelname": "INFO", "name": "real_world_rag", "message": "Loading local data..."}
+{"asctime": "2026-06-13 15:15:15,094", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: Dataset({\n    features: ['id', 'question', 'documents', 'response', 'generation_model_name', 'annotating_model_name', 'dataset_name', 'documents_sentences', 'response_sentences', 'sentence_support_information', 'unsupported_response_sentence_keys', 'adherence_score', 'overall_supported_explanation', 'relevance_explanation', 'all_relevant_sentence_keys', 'all_utilized_sentence_keys', 'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness', 'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance', 'gpt35_utilization', 'relevance_score', 'utilization_score', 'completeness_score'],\n    num_rows: 267\n})"}
+{"asctime": "2026-06-13 15:15:15,096", "levelname": "INFO", "name": "real_world_rag", "message": "Data loaded: 267 documents found"}
+{"asctime": "2026-06-13 15:32:51,236", "levelname": "INFO", "name": "real_world_rag", "message": "Data loader initialized"}
+{"asctime": "2026-06-13 15:32:51,237", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 15:32:51,240", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: <src.rag_components.data_loaders.local_loader.LocalLoader object at 0x00000295BA684110>"}
+{"asctime": "2026-06-13 15:32:51,241", "levelname": "INFO", "name": "real_world_rag", "message": "Loading local data..."}
+{"asctime": "2026-06-13 15:32:52,149", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: Dataset({\n    features: ['id', 'question', 'documents', 'response', 'generation_model_name', 'annotating_model_name', 'dataset_name', 'documents_sentences', 'response_sentences', 'sentence_support_information', 'unsupported_response_sentence_keys', 'adherence_score', 'overall_supported_explanation', 'relevance_explanation', 'all_relevant_sentence_keys', 'all_utilized_sentence_keys', 'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness', 'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance', 'gpt35_utilization', 'relevance_score', 'utilization_score', 'completeness_score'],\n    num_rows: 267\n})"}
+{"asctime": "2026-06-13 15:32:52,151", "levelname": "INFO", "name": "real_world_rag", "message": "Data loaded: 267 documents found"}
+{"asctime": "2026-06-13 15:33:15,858", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 15:33:15,894", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 15:33:15,896", "levelname": "INFO", "name": "real_world_rag", "message": "Hello from real-world-rag-system!"}
+{"asctime": "2026-06-13 15:33:15,897", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 15:33:15,956", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/offline_data.yaml"}
+{"asctime": "2026-06-13 15:33:15,961", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.LOCAL: 'local'> path=None dataset_name='suniltvl/ragbench' subset='tatqa' split='validation' cache_dir=None data_dir='./data/rag_bench' streaming=True file_extension='parquet'"}
+{"asctime": "2026-06-13 15:33:31,801", "levelname": "INFO", "name": "real_world_rag", "message": "Data loader initialized"}
+{"asctime": "2026-06-13 15:33:31,804", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 15:33:31,807", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: <src.rag_components.data_loaders.local_loader.LocalLoader object at 0x000002957CDB3B30>"}
+{"asctime": "2026-06-13 15:33:31,808", "levelname": "INFO", "name": "real_world_rag", "message": "Loading local data..."}
+{"asctime": "2026-06-13 15:37:00,549", "levelname": "INFO", "name": "real_world_rag", "message": "Data loader initialized"}
+{"asctime": "2026-06-13 15:37:00,551", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 15:37:00,555", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: <src.rag_components.data_loaders.local_loader.LocalLoader object at 0x00000295BA7423F0>"}
+{"asctime": "2026-06-13 15:37:00,556", "levelname": "INFO", "name": "real_world_rag", "message": "Loading local data..."}
+{"asctime": "2026-06-13 15:37:04,331", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: Dataset({\n    features: ['id', 'question', 'documents', 'response', 'generation_model_name', 'annotating_model_name', 'dataset_name', 'documents_sentences', 'response_sentences', 'sentence_support_information', 'unsupported_response_sentence_keys', 'adherence_score', 'overall_supported_explanation', 'relevance_explanation', 'all_relevant_sentence_keys', 'all_utilized_sentence_keys', 'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness', 'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance', 'gpt35_utilization', 'relevance_score', 'utilization_score', 'completeness_score'],\n    num_rows: 3336\n})"}
+{"asctime": "2026-06-13 15:37:04,333", "levelname": "INFO", "name": "real_world_rag", "message": "Data loaded: 3336 documents found"}
+{"asctime": "2026-06-13 15:43:09,237", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 15:43:09,287", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 15:43:09,289", "levelname": "INFO", "name": "real_world_rag", "message": "Hello from real-world-rag-system!"}
+{"asctime": "2026-06-13 15:43:09,291", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 15:43:09,384", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/offline_data.yaml"}
+{"asctime": "2026-06-13 15:43:09,389", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.LOCAL: 'local'> path=None dataset_name='suniltvl/ragbench' subset='tatqa' split='validation' cache_dir=None data_dir='./data/rag_bench' streaming=True file_extension='parquet'"}
+{"asctime": "2026-06-13 15:43:09,464", "levelname": "INFO", "name": "real_world_rag", "message": "Data loader initialized"}
+{"asctime": "2026-06-13 15:43:09,466", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 15:43:09,468", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: <src.rag_components.data_loaders.local_loader.LocalLoader object at 0x00000295BAEC0B60>"}
+{"asctime": "2026-06-13 15:43:09,469", "levelname": "INFO", "name": "real_world_rag", "message": "Loading local data..."}
+{"asctime": "2026-06-13 15:43:10,610", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: Dataset({\n    features: ['id', 'question', 'documents', 'response', 'generation_model_name', 'annotating_model_name', 'dataset_name', 'documents_sentences', 'response_sentences', 'sentence_support_information', 'unsupported_response_sentence_keys', 'adherence_score', 'overall_supported_explanation', 'relevance_explanation', 'all_relevant_sentence_keys', 'all_utilized_sentence_keys', 'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness', 'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance', 'gpt35_utilization', 'relevance_score', 'utilization_score', 'completeness_score'],\n    num_rows: 3336\n})"}
+{"asctime": "2026-06-13 15:43:10,611", "levelname": "INFO", "name": "real_world_rag", "message": "Data loaded: 3336 documents found"}
+{"asctime": "2026-06-13 15:57:13,407", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 15:58:09,318", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 15:58:28,788", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 15:58:46,732", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 15:58:56,985", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 15:59:19,329", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 15:59:26,605", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 15:59:41,709", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 15:59:55,561", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 16:00:13,496", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 16:02:32,071", "levelname": "INFO", "name": "real_world_rag", "message": "Chunker initialized"}
+{"asctime": "2026-06-13 16:02:32,073", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:04:12,746", "levelname": "INFO", "name": "real_world_rag", "message": "Chunker initialized"}
+{"asctime": "2026-06-13 16:04:12,748", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:05:05,714", "levelname": "INFO", "name": "real_world_rag", "message": "Chunker initialized"}
+{"asctime": "2026-06-13 16:05:05,717", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:06:02,381", "levelname": "INFO", "name": "real_world_rag", "message": "Chunker initialized"}
+{"asctime": "2026-06-13 16:06:02,383", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:06:34,581", "levelname": "INFO", "name": "real_world_rag", "message": "Chunker initialized"}
+{"asctime": "2026-06-13 16:06:34,582", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:06:43,228", "levelname": "INFO", "name": "real_world_rag", "message": "Chunker initialized"}
+{"asctime": "2026-06-13 16:06:43,230", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:10:44,117", "levelname": "INFO", "name": "real_world_rag", "message": "Data loader initialized"}
+{"asctime": "2026-06-13 16:10:44,119", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:10:44,121", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: <src.rag_components.data_loaders.local_loader.LocalLoader object at 0x00000295BFBE2CC0>"}
+{"asctime": "2026-06-13 16:10:44,122", "levelname": "INFO", "name": "real_world_rag", "message": "Loading local data..."}
+{"asctime": "2026-06-13 16:10:45,008", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: Dataset({\n    features: ['id', 'question', 'documents', 'response', 'generation_model_name', 'annotating_model_name', 'dataset_name', 'documents_sentences', 'response_sentences', 'sentence_support_information', 'unsupported_response_sentence_keys', 'adherence_score', 'overall_supported_explanation', 'relevance_explanation', 'all_relevant_sentence_keys', 'all_utilized_sentence_keys', 'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness', 'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance', 'gpt35_utilization', 'relevance_score', 'utilization_score', 'completeness_score'],\n    num_rows: 3336\n})"}
+{"asctime": "2026-06-13 16:10:45,009", "levelname": "INFO", "name": "real_world_rag", "message": "Data loaded: 3336 documents found"}
+{"asctime": "2026-06-13 16:17:43,455", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 16:20:48,131", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:20:48,148", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 16:20:48,150", "levelname": "INFO", "name": "real_world_rag", "message": "Hello from real-world-rag-system!"}
+{"asctime": "2026-06-13 16:20:48,151", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 16:20:48,190", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/offline_data.yaml"}
+{"asctime": "2026-06-13 16:20:48,194", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.LOCAL: 'local'> path=None dataset_name='suniltvl/ragbench' subset='tatqa' split='validation' cache_dir=None data_dir='./data/rag_bench' streaming=True file_extension='parquet'"}
+{"asctime": "2026-06-13 16:20:48,288", "levelname": "INFO", "name": "real_world_rag", "message": "Data loader initialized"}
+{"asctime": "2026-06-13 16:20:48,290", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:20:48,293", "levelname": "INFO", "name": "real_world_rag", "message": "Loading local data..."}
+{"asctime": "2026-06-13 16:20:49,182", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: Dataset({\n    features: ['id', 'question', 'documents', 'response', 'generation_model_name', 'annotating_model_name', 'dataset_name', 'documents_sentences', 'response_sentences', 'sentence_support_information', 'unsupported_response_sentence_keys', 'adherence_score', 'overall_supported_explanation', 'relevance_explanation', 'all_relevant_sentence_keys', 'all_utilized_sentence_keys', 'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness', 'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance', 'gpt35_utilization', 'relevance_score', 'utilization_score', 'completeness_score'],\n    num_rows: 3336\n})"}
+{"asctime": "2026-06-13 16:20:49,183", "levelname": "INFO", "name": "real_world_rag", "message": "Data loaded: 3336 documents found"}
+{"asctime": "2026-06-13 16:20:49,246", "levelname": "INFO", "name": "real_world_rag", "message": "Chunker initialized"}
+{"asctime": "2026-06-13 16:20:49,248", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:20:59,231", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 16:22:13,756", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 16:25:05,175", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 16:25:11,586", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 16:25:25,798", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 16:26:26,335", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:26:26,357", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 16:26:26,359", "levelname": "INFO", "name": "real_world_rag", "message": "Hello from real-world-rag-system!"}
+{"asctime": "2026-06-13 16:26:26,360", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 16:26:26,398", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/offline_data.yaml"}
+{"asctime": "2026-06-13 16:26:26,402", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.LOCAL: 'local'> path=None dataset_name='suniltvl/ragbench' subset='tatqa' split='validation' cache_dir=None data_dir='./data/rag_bench' streaming=True file_extension='parquet'"}
+{"asctime": "2026-06-13 16:26:26,449", "levelname": "INFO", "name": "real_world_rag", "message": "Data loader initialized"}
+{"asctime": "2026-06-13 16:26:26,449", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:26:26,451", "levelname": "INFO", "name": "real_world_rag", "message": "Loading local data..."}
+{"asctime": "2026-06-13 16:26:27,356", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: Dataset({\n    features: ['id', 'question', 'documents', 'response', 'generation_model_name', 'annotating_model_name', 'dataset_name', 'documents_sentences', 'response_sentences', 'sentence_support_information', 'unsupported_response_sentence_keys', 'adherence_score', 'overall_supported_explanation', 'relevance_explanation', 'all_relevant_sentence_keys', 'all_utilized_sentence_keys', 'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness', 'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance', 'gpt35_utilization', 'relevance_score', 'utilization_score', 'completeness_score'],\n    num_rows: 3336\n})"}
+{"asctime": "2026-06-13 16:26:27,358", "levelname": "INFO", "name": "real_world_rag", "message": "Data loaded: 3336 documents found"}
+{"asctime": "2026-06-13 16:26:27,431", "levelname": "INFO", "name": "real_world_rag", "message": "Chunker initialized"}
+{"asctime": "2026-06-13 16:26:27,433", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:26:32,840", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 16:27:10,143", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 16:28:14,688", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:28:14,711", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 16:28:14,713", "levelname": "INFO", "name": "real_world_rag", "message": "Hello from real-world-rag-system!"}
+{"asctime": "2026-06-13 16:28:14,714", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 16:28:14,762", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/offline_data.yaml"}
+{"asctime": "2026-06-13 16:28:14,767", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.LOCAL: 'local'> path=None dataset_name='suniltvl/ragbench' subset='tatqa' split='validation' cache_dir=None data_dir='./data/rag_bench' streaming=True file_extension='parquet'"}
+{"asctime": "2026-06-13 16:28:14,839", "levelname": "INFO", "name": "real_world_rag", "message": "Data loader initialized"}
+{"asctime": "2026-06-13 16:28:14,841", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:28:14,843", "levelname": "INFO", "name": "real_world_rag", "message": "Loading local data..."}
+{"asctime": "2026-06-13 16:28:15,810", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: Dataset({\n    features: ['id', 'question', 'documents', 'response', 'generation_model_name', 'annotating_model_name', 'dataset_name', 'documents_sentences', 'response_sentences', 'sentence_support_information', 'unsupported_response_sentence_keys', 'adherence_score', 'overall_supported_explanation', 'relevance_explanation', 'all_relevant_sentence_keys', 'all_utilized_sentence_keys', 'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness', 'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance', 'gpt35_utilization', 'relevance_score', 'utilization_score', 'completeness_score'],\n    num_rows: 3336\n})"}
+{"asctime": "2026-06-13 16:28:15,812", "levelname": "INFO", "name": "real_world_rag", "message": "Data loaded: 3336 documents found"}
+{"asctime": "2026-06-13 16:28:15,876", "levelname": "INFO", "name": "real_world_rag", "message": "Chunker initialized"}
+{"asctime": "2026-06-13 16:28:15,877", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:28:20,159", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 16:29:14,232", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:29:14,261", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 16:29:14,264", "levelname": "INFO", "name": "real_world_rag", "message": "Hello from real-world-rag-system!"}
+{"asctime": "2026-06-13 16:29:14,265", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 16:29:14,319", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/offline_data.yaml"}
+{"asctime": "2026-06-13 16:29:14,327", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.LOCAL: 'local'> path=None dataset_name='suniltvl/ragbench' subset='tatqa' split='validation' cache_dir=None data_dir='./data/rag_bench' streaming=True file_extension='parquet'"}
+{"asctime": "2026-06-13 16:29:14,431", "levelname": "INFO", "name": "real_world_rag", "message": "Data loader initialized"}
+{"asctime": "2026-06-13 16:29:14,432", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:29:14,434", "levelname": "INFO", "name": "real_world_rag", "message": "Loading local data..."}
+{"asctime": "2026-06-13 16:29:15,305", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: Dataset({\n    features: ['id', 'question', 'documents', 'response', 'generation_model_name', 'annotating_model_name', 'dataset_name', 'documents_sentences', 'response_sentences', 'sentence_support_information', 'unsupported_response_sentence_keys', 'adherence_score', 'overall_supported_explanation', 'relevance_explanation', 'all_relevant_sentence_keys', 'all_utilized_sentence_keys', 'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness', 'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance', 'gpt35_utilization', 'relevance_score', 'utilization_score', 'completeness_score'],\n    num_rows: 3336\n})"}
+{"asctime": "2026-06-13 16:29:15,306", "levelname": "INFO", "name": "real_world_rag", "message": "Data loaded: 3336 documents found"}
+{"asctime": "2026-06-13 16:29:15,378", "levelname": "INFO", "name": "real_world_rag", "message": "Chunker initialized"}
+{"asctime": "2026-06-13 16:29:15,380", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:29:19,991", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 16:29:33,165", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 16:29:51,719", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 16:30:02,433", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 16:54:41,334", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:54:41,357", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 16:54:41,357", "levelname": "INFO", "name": "real_world_rag", "message": "Hello from real-world-rag-system!"}
+{"asctime": "2026-06-13 16:54:41,359", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 16:54:41,404", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/offline_data.yaml"}
+{"asctime": "2026-06-13 16:54:41,408", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.LOCAL: 'local'> path=None dataset_name='suniltvl/ragbench' subset='tatqa' split='validation' cache_dir=None data_dir='./data/rag_bench' streaming=True file_extension='parquet'"}
+{"asctime": "2026-06-13 16:54:41,460", "levelname": "INFO", "name": "real_world_rag", "message": "Data loader initialized"}
+{"asctime": "2026-06-13 16:54:41,461", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:54:41,463", "levelname": "INFO", "name": "real_world_rag", "message": "Loading local data..."}
+{"asctime": "2026-06-13 16:54:42,385", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: Dataset({\n    features: ['id', 'question', 'documents', 'response', 'generation_model_name', 'annotating_model_name', 'dataset_name', 'documents_sentences', 'response_sentences', 'sentence_support_information', 'unsupported_response_sentence_keys', 'adherence_score', 'overall_supported_explanation', 'relevance_explanation', 'all_relevant_sentence_keys', 'all_utilized_sentence_keys', 'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness', 'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance', 'gpt35_utilization', 'relevance_score', 'utilization_score', 'completeness_score'],\n    num_rows: 3336\n})"}
+{"asctime": "2026-06-13 16:54:42,387", "levelname": "INFO", "name": "real_world_rag", "message": "Data loaded: 3336 documents found"}
+{"asctime": "2026-06-13 16:54:42,524", "levelname": "INFO", "name": "real_world_rag", "message": "Chunker initialized"}
+{"asctime": "2026-06-13 16:54:42,526", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 16:54:42,762", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 18:54:30,558", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 18:54:30,567", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 18:54:30,568", "levelname": "INFO", "name": "real_world_rag", "message": "Hello from real-world-rag-system!"}
+{"asctime": "2026-06-13 18:54:30,568", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 18:54:30,589", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/offline_data.yaml"}
+{"asctime": "2026-06-13 18:54:30,593", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.LOCAL: 'local'> path=None dataset_name='suniltvl/ragbench' subset='tatqa' split='validation' cache_dir=None data_dir='./data/rag_bench' streaming=True file_extension='parquet'"}
+{"asctime": "2026-06-13 18:54:30,626", "levelname": "INFO", "name": "real_world_rag", "message": "Data loader initialized"}
+{"asctime": "2026-06-13 18:55:26,013", "levelname": "INFO", "name": "real_world_rag", "message": "Data loader initialized"}
+{"asctime": "2026-06-13 18:55:26,014", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 18:55:26,016", "levelname": "INFO", "name": "real_world_rag", "message": "Loading local data..."}
+{"asctime": "2026-06-13 18:55:27,645", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: Dataset({\n    features: ['id', 'question', 'documents', 'response', 'generation_model_name', 'annotating_model_name', 'dataset_name', 'documents_sentences', 'response_sentences', 'sentence_support_information', 'unsupported_response_sentence_keys', 'adherence_score', 'overall_supported_explanation', 'relevance_explanation', 'all_relevant_sentence_keys', 'all_utilized_sentence_keys', 'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness', 'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance', 'gpt35_utilization', 'relevance_score', 'utilization_score', 'completeness_score'],\n    num_rows: 3336\n})"}
+{"asctime": "2026-06-13 18:55:27,647", "levelname": "INFO", "name": "real_world_rag", "message": "Data loaded: 3336 documents found"}
+{"asctime": "2026-06-13 18:56:28,005", "levelname": "INFO", "name": "real_world_rag", "message": "Chunker initialized"}
+{"asctime": "2026-06-13 18:56:28,006", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 19:06:37,831", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 19:06:37,839", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 19:06:37,840", "levelname": "INFO", "name": "real_world_rag", "message": "Hello from real-world-rag-system!"}
+{"asctime": "2026-06-13 19:06:37,841", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 19:06:37,860", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/offline_data.yaml"}
+{"asctime": "2026-06-13 19:06:37,865", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.LOCAL: 'local'> path=None dataset_name='suniltvl/ragbench' subset='tatqa' split='validation' cache_dir=None data_dir='./data/rag_bench' streaming=True file_extension='parquet'"}
+{"asctime": "2026-06-13 19:06:37,893", "levelname": "INFO", "name": "real_world_rag", "message": "Data loader initialized"}
+{"asctime": "2026-06-13 19:06:37,894", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 19:06:37,896", "levelname": "INFO", "name": "real_world_rag", "message": "Loading local data..."}
+{"asctime": "2026-06-13 19:06:38,912", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: Dataset({\n    features: ['id', 'question', 'documents', 'response', 'generation_model_name', 'annotating_model_name', 'dataset_name', 'documents_sentences', 'response_sentences', 'sentence_support_information', 'unsupported_response_sentence_keys', 'adherence_score', 'overall_supported_explanation', 'relevance_explanation', 'all_relevant_sentence_keys', 'all_utilized_sentence_keys', 'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness', 'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance', 'gpt35_utilization', 'relevance_score', 'utilization_score', 'completeness_score'],\n    num_rows: 3336\n})"}
+{"asctime": "2026-06-13 19:06:38,913", "levelname": "INFO", "name": "real_world_rag", "message": "Data loaded: 3336 documents found"}
+{"asctime": "2026-06-13 19:06:38,975", "levelname": "INFO", "name": "real_world_rag", "message": "Chunker initialized"}
+{"asctime": "2026-06-13 19:06:38,977", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 19:06:39,019", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 19:15:34,569", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 19:15:34,580", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 19:15:34,581", "levelname": "INFO", "name": "real_world_rag", "message": "Hello from real-world-rag-system!"}
+{"asctime": "2026-06-13 19:15:34,583", "levelname": "INFO", "name": "real_world_rag", "message": "================================================================================"}
+{"asctime": "2026-06-13 19:15:34,609", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/offline_data.yaml"}
+{"asctime": "2026-06-13 19:15:34,614", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.LOCAL: 'local'> path=None dataset_name='suniltvl/ragbench' subset='tatqa' split='validation' cache_dir=None data_dir='./data/rag_bench' streaming=True file_extension='parquet'"}
+{"asctime": "2026-06-13 19:15:34,653", "levelname": "INFO", "name": "real_world_rag", "message": "Data loader initialized"}
+{"asctime": "2026-06-13 19:15:34,655", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 19:15:34,657", "levelname": "INFO", "name": "real_world_rag", "message": "Loading local data..."}
+{"asctime": "2026-06-13 19:15:35,695", "levelname": "DEBUG", "name": "real_world_rag", "message": "Loader created: Dataset({\n    features: ['id', 'question', 'documents', 'response', 'generation_model_name', 'annotating_model_name', 'dataset_name', 'documents_sentences', 'response_sentences', 'sentence_support_information', 'unsupported_response_sentence_keys', 'adherence_score', 'overall_supported_explanation', 'relevance_explanation', 'all_relevant_sentence_keys', 'all_utilized_sentence_keys', 'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness', 'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance', 'gpt35_utilization', 'relevance_score', 'utilization_score', 'completeness_score'],\n    num_rows: 3336\n})"}
+{"asctime": "2026-06-13 19:15:35,696", "levelname": "INFO", "name": "real_world_rag", "message": "Data loaded: 3336 documents found"}
+{"asctime": "2026-06-13 19:15:35,735", "levelname": "INFO", "name": "real_world_rag", "message": "Chunker initialized"}
+{"asctime": "2026-06-13 19:15:35,738", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 19:15:35,772", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 22:19:24,872", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-13 22:29:29,785", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml"}
+{"asctime": "2026-06-13 22:29:29,796", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='emanual' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension=''"}
+{"asctime": "2026-06-13 22:32:47,086", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 22:34:39,696", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 22:47:20,232", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 22:53:22,465", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 22:53:28,377", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 22:58:29,410", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-13 22:59:01,712", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}

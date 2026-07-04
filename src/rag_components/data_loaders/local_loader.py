@@ -5,6 +5,8 @@ from src.utils.logger import Logger
 from .base import BaseDataLoader
 from datasets import load_dataset
 from src.models.enums import DataSetType
+from src.utils.helper import helper
+
 
 class LocalLoader(BaseDataLoader):
     def __init__(self,
@@ -16,7 +18,7 @@ class LocalLoader(BaseDataLoader):
         super().__init__()
         self.subset = subset
         self.split = split
-        self.data_dir = data_dir
+        self.data_dir = helper.get_dir_in_project(data_dir) if data_dir else data_dir
         self.file_extension = file_extension
 
     def load(self):

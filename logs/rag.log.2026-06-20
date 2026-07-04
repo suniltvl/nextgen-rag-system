@@ -1,0 +1,9 @@
+2026-06-20 19:43:23,492 | INFO	| real_world_rag | RAG System started
+2026-06-20 19:43:23,507 | INFO	| real_world_rag | Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml
+2026-06-20 19:43:23,532 | DEBUG	| real_world_rag | Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='emanual' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension='' base_url=None
+2026-06-20 20:24:53,684 | INFO	| real_world_rag | RAG System started
+2026-06-20 20:24:53,694 | INFO	| real_world_rag | Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml
+2026-06-20 20:24:53,698 | DEBUG	| real_world_rag | Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='emanual' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension='' base_url=None
+2026-06-20 20:24:53,797 | INFO	| real_world_rag | embedding initialized
+2026-06-20 20:25:23,231 | INFO	| real_world_rag | embedding initialized
+2026-06-20 20:40:55,564 | INFO	| real_world_rag | embedding initialized

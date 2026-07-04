@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 from logging.handlers import TimedRotatingFileHandler
 from pythonjsonlogger import jsonlogger
+from .helper import helper
 
 
 class LoggerFactory:
@@ -18,7 +19,11 @@ class LoggerFactory:
 
         logger.setLevel(config.log_level)
 
-        Path(config.log_dir).mkdir(
+        logger_dir_path = Path(helper.get_project_root() / config.log_dir)
+
+        print(f"Logger directory: {logger_dir_path}")
+
+        logger_dir_path.mkdir(
             parents=True,
             exist_ok=True
         )
@@ -44,7 +49,7 @@ class LoggerFactory:
         if config.enable_file_logger:
 
             file_handler = TimedRotatingFileHandler(
-                filename=f"{config.log_dir}/{config.log_file}",
+                filename=f"{logger_dir_path}/{config.log_file}",
                 when="midnight",
                 backupCount=config.log_retention_days,
                 encoding="utf-8"
@@ -64,7 +69,7 @@ class LoggerFactory:
         if config.enable_json_logger:
 
             json_handler = TimedRotatingFileHandler(
-                filename=f"{config.log_dir}/rag_json.log",
+                filename=f"{logger_dir_path}/rag_json.log",
                 when="midnight",
                 backupCount=config.log_retention_days,
                 encoding="utf-8"

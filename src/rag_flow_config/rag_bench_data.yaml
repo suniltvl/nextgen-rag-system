@@ -3,9 +3,8 @@ extends: baseline.yaml
 data_loader:
   source: huggingface
   dataset_name: suniltvl/ragbench
-  subset: covidqa
+  subset: emanual
   split: test
   cache_dir: ./data/hf_cache
   streaming: false
 
-  

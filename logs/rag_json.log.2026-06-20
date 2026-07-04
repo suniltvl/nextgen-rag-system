@@ -1,0 +1,9 @@
+{"asctime": "2026-06-20 19:43:23,492", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-20 19:43:23,507", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml"}
+{"asctime": "2026-06-20 19:43:23,532", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='emanual' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension='' base_url=None"}
+{"asctime": "2026-06-20 20:24:53,684", "levelname": "INFO", "name": "real_world_rag", "message": "RAG System started"}
+{"asctime": "2026-06-20 20:24:53,694", "levelname": "INFO", "name": "real_world_rag", "message": "Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml"}
+{"asctime": "2026-06-20 20:24:53,698", "levelname": "DEBUG", "name": "real_world_rag", "message": "Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='emanual' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension='' base_url=None"}
+{"asctime": "2026-06-20 20:24:53,797", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-20 20:25:23,231", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}
+{"asctime": "2026-06-20 20:40:55,564", "levelname": "INFO", "name": "real_world_rag", "message": "embedding initialized"}

@@ -1,0 +1,173 @@
+2026-07-01 22:29:27,999 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:29:28,025 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:29:28,026 | INFO	| real_world_rag | Loading local data...
+2026-07-01 22:29:29,002 | DEBUG	| real_world_rag | Loader created: Dataset({     features: ['id', 'question', 'documents',
+'response', 'generation_model_name', 'annotating_model_name', 'dataset_name',
+'documents_sentences', 'response_sentences', 'sentence_support_information',
+'unsupported_response_sentence_keys', 'adherence_score',
+'overall_supported_explanation', 'relevance_explanation',
+'all_relevant_sentence_keys', 'all_utilized_sentence_keys',
+'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness',
+'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance',
+'gpt35_utilization', 'relevance_score', 'utilization_score',
+'completeness_score'],     num_rows: 132 })
+2026-07-01 22:29:29,018 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:32:34,078 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:32:34,102 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:32:34,104 | INFO	| real_world_rag | Loading local data...
+2026-07-01 22:32:34,984 | DEBUG	| real_world_rag | Loader created: Dataset({     features: ['id', 'question', 'documents',
+'response', 'generation_model_name', 'annotating_model_name', 'dataset_name',
+'documents_sentences', 'response_sentences', 'sentence_support_information',
+'unsupported_response_sentence_keys', 'adherence_score',
+'overall_supported_explanation', 'relevance_explanation',
+'all_relevant_sentence_keys', 'all_utilized_sentence_keys',
+'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness',
+'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance',
+'gpt35_utilization', 'relevance_score', 'utilization_score',
+'completeness_score'],     num_rows: 132 })
+2026-07-01 22:32:34,996 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:33:36,101 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:33:36,134 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:33:36,137 | INFO	| real_world_rag | Loading local data...
+2026-07-01 22:33:36,982 | DEBUG	| real_world_rag | Loader created: Dataset({     features: ['id', 'question', 'documents',
+'response', 'generation_model_name', 'annotating_model_name', 'dataset_name',
+'documents_sentences', 'response_sentences', 'sentence_support_information',
+'unsupported_response_sentence_keys', 'adherence_score',
+'overall_supported_explanation', 'relevance_explanation',
+'all_relevant_sentence_keys', 'all_utilized_sentence_keys',
+'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness',
+'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance',
+'gpt35_utilization', 'relevance_score', 'utilization_score',
+'completeness_score'],     num_rows: 132 })
+2026-07-01 22:33:36,995 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:33:44,128 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:46:34,865 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:46:34,889 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:46:34,891 | INFO	| real_world_rag | Loading local data...
+2026-07-01 22:46:35,771 | DEBUG	| real_world_rag | Loader created: Dataset({     features: ['id', 'question', 'documents',
+'response', 'generation_model_name', 'annotating_model_name', 'dataset_name',
+'documents_sentences', 'response_sentences', 'sentence_support_information',
+'unsupported_response_sentence_keys', 'adherence_score',
+'overall_supported_explanation', 'relevance_explanation',
+'all_relevant_sentence_keys', 'all_utilized_sentence_keys',
+'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness',
+'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance',
+'gpt35_utilization', 'relevance_score', 'utilization_score',
+'completeness_score'],     num_rows: 132 })
+2026-07-01 22:46:35,799 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:46:35,929 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:49:00,770 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:49:19,474 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:49:19,502 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:49:19,506 | INFO	| real_world_rag | Loading local data...
+2026-07-01 22:49:20,458 | DEBUG	| real_world_rag | Loader created: Dataset({     features: ['id', 'question', 'documents',
+'response', 'generation_model_name', 'annotating_model_name', 'dataset_name',
+'documents_sentences', 'response_sentences', 'sentence_support_information',
+'unsupported_response_sentence_keys', 'adherence_score',
+'overall_supported_explanation', 'relevance_explanation',
+'all_relevant_sentence_keys', 'all_utilized_sentence_keys',
+'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness',
+'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance',
+'gpt35_utilization', 'relevance_score', 'utilization_score',
+'completeness_score'],     num_rows: 132 })
+2026-07-01 22:49:20,476 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:49:24,720 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:51:45,304 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:51:45,332 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:51:45,334 | INFO	| real_world_rag | Loading local data...
+2026-07-01 22:51:46,174 | DEBUG	| real_world_rag | Loader created: Dataset({     features: ['id', 'question', 'documents',
+'response', 'generation_model_name', 'annotating_model_name', 'dataset_name',
+'documents_sentences', 'response_sentences', 'sentence_support_information',
+'unsupported_response_sentence_keys', 'adherence_score',
+'overall_supported_explanation', 'relevance_explanation',
+'all_relevant_sentence_keys', 'all_utilized_sentence_keys',
+'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness',
+'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance',
+'gpt35_utilization', 'relevance_score', 'utilization_score',
+'completeness_score'],     num_rows: 132 })
+2026-07-01 22:51:46,190 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:51:50,826 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:53:41,426 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:53:41,453 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:53:41,456 | INFO	| real_world_rag | Loading local data...
+2026-07-01 22:53:42,381 | DEBUG	| real_world_rag | Loader created: Dataset({     features: ['id', 'question', 'documents',
+'response', 'generation_model_name', 'annotating_model_name', 'dataset_name',
+'documents_sentences', 'response_sentences', 'sentence_support_information',
+'unsupported_response_sentence_keys', 'adherence_score',
+'overall_supported_explanation', 'relevance_explanation',
+'all_relevant_sentence_keys', 'all_utilized_sentence_keys',
+'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness',
+'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance',
+'gpt35_utilization', 'relevance_score', 'utilization_score',
+'completeness_score'],     num_rows: 132 })
+2026-07-01 22:53:42,416 | INFO	| real_world_rag | RAG System started
+2026-07-01 22:53:46,633 | INFO	| real_world_rag | RAG System started
+2026-07-01 23:18:40,562 | INFO	| real_world_rag | RAG System started
+2026-07-01 23:18:40,589 | INFO	| real_world_rag | RAG System started
+2026-07-01 23:18:40,591 | INFO	| real_world_rag | Loading local data...
+2026-07-01 23:18:41,510 | DEBUG	| real_world_rag | Loader created: Dataset({     features: ['id', 'question', 'documents',
+'response', 'generation_model_name', 'annotating_model_name', 'dataset_name',
+'documents_sentences', 'response_sentences', 'sentence_support_information',
+'unsupported_response_sentence_keys', 'adherence_score',
+'overall_supported_explanation', 'relevance_explanation',
+'all_relevant_sentence_keys', 'all_utilized_sentence_keys',
+'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness',
+'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance',
+'gpt35_utilization', 'relevance_score', 'utilization_score',
+'completeness_score'],     num_rows: 132 })
+2026-07-01 23:18:41,524 | INFO	| real_world_rag | RAG System started
+2026-07-01 23:18:46,383 | INFO	| real_world_rag | RAG System started
+2026-07-01 23:47:10,192 | INFO	| real_world_rag | RAG System started
+2026-07-01 23:47:10,217 | INFO	| real_world_rag | RAG System started
+2026-07-01 23:47:10,222 | INFO	| real_world_rag | Loading local data...
+2026-07-01 23:47:11,131 | DEBUG	| real_world_rag | Loader created: Dataset({     features: ['id', 'question', 'documents',
+'response', 'generation_model_name', 'annotating_model_name', 'dataset_name',
+'documents_sentences', 'response_sentences', 'sentence_support_information',
+'unsupported_response_sentence_keys', 'adherence_score',
+'overall_supported_explanation', 'relevance_explanation',
+'all_relevant_sentence_keys', 'all_utilized_sentence_keys',
+'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness',
+'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance',
+'gpt35_utilization', 'relevance_score', 'utilization_score',
+'completeness_score'],     num_rows: 132 })
+2026-07-01 23:47:28,301 | INFO	| real_world_rag | RAG System started
+2026-07-01 23:47:28,324 | INFO	| real_world_rag | RAG System started
+2026-07-01 23:47:28,325 | INFO	| real_world_rag | Loading local data...
+2026-07-01 23:47:29,180 | DEBUG	| real_world_rag | Loader created: Dataset({     features: ['id', 'question', 'documents',
+'response', 'generation_model_name', 'annotating_model_name', 'dataset_name',
+'documents_sentences', 'response_sentences', 'sentence_support_information',
+'unsupported_response_sentence_keys', 'adherence_score',
+'overall_supported_explanation', 'relevance_explanation',
+'all_relevant_sentence_keys', 'all_utilized_sentence_keys',
+'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness',
+'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance',
+'gpt35_utilization', 'relevance_score', 'utilization_score',
+'completeness_score'],     num_rows: 132 })
+2026-07-01 23:48:13,130 | INFO	| real_world_rag | RAG System started
+2026-07-01 23:48:13,155 | INFO	| real_world_rag | RAG System started
+2026-07-01 23:48:13,157 | INFO	| real_world_rag | Loading local data...
+2026-07-01 23:48:14,095 | DEBUG	| real_world_rag | Loader created: Dataset({     features: ['id', 'question', 'documents',
+'response', 'generation_model_name', 'annotating_model_name', 'dataset_name',
+'documents_sentences', 'response_sentences', 'sentence_support_information',
+'unsupported_response_sentence_keys', 'adherence_score',
+'overall_supported_explanation', 'relevance_explanation',
+'all_relevant_sentence_keys', 'all_utilized_sentence_keys',
+'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness',
+'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance',
+'gpt35_utilization', 'relevance_score', 'utilization_score',
+'completeness_score'],     num_rows: 132 })
+2026-07-01 23:49:13,658 | INFO	| real_world_rag | RAG System started
+2026-07-01 23:49:13,684 | INFO	| real_world_rag | RAG System started
+2026-07-01 23:49:13,685 | INFO	| real_world_rag | Loading local data...
+2026-07-01 23:49:14,546 | DEBUG	| real_world_rag | Loader created: Dataset({     features: ['id', 'question', 'documents',
+'response', 'generation_model_name', 'annotating_model_name', 'dataset_name',
+'documents_sentences', 'response_sentences', 'sentence_support_information',
+'unsupported_response_sentence_keys', 'adherence_score',
+'overall_supported_explanation', 'relevance_explanation',
+'all_relevant_sentence_keys', 'all_utilized_sentence_keys',
+'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness',
+'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance',
+'gpt35_utilization', 'relevance_score', 'utilization_score',
+'completeness_score'],     num_rows: 132 })
+2026-07-01 23:49:14,556 | INFO	| real_world_rag | RAG System started
+2026-07-01 23:49:19,395 | INFO	| real_world_rag | RAG System started

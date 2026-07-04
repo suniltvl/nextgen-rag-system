@@ -1,0 +1,137 @@
+[
+  {
+    "datetime": "2026-07-01T18:14:23.357094+00:00",
+    "scores": {
+      "question": "What is the use of search option in tne smart hub?",
+      "reference_answer": "The search option in Smart Hub allows users to search the Internet, install and use various apps, view photos and videos, listen to music stored on external storage devices, and perform more functions.",
+      "generated_answer": "The Search function allows you to find channels, apps, movie titles, and other apps provided by the Smart Hub service. To use it, a Smart Hub service agreement is required.",
+      "retrieval_overlap": 0.8,
+      "answer_overlap": 0.20512820512820512,
+      "faithfulness_proxy": 0.18518518518518517
+    }
+  },
+  {
+    "datetime": "2026-07-01T18:14:51.851618+00:00",
+    "scores": {
+      "question": "What is the use of search option in tne smart hub?",
+      "reference_answer": "The search option in Smart Hub allows users to search the Internet, install and use various apps, view photos and videos, listen to music stored on external storage devices, and perform more functions.",
+      "generated_answer": "The search function allows you to find channels, apps, movie titles, and other apps provided by the Smart Hub service. To use it, a Smart Hub service agreement is required for all users.",
+      "retrieval_overlap": 0.8,
+      "answer_overlap": 0.19047619047619047,
+      "faithfulness_proxy": 0.18604651162790697
+    }
+  },
+  {
+    "datetime": "2026-07-01T18:16:23.456115+00:00",
+    "scores": {
+      "question": "I want to know about settings option in smart hub. What is it?",
+      "reference_answer": "The settings option in Smart Hub allows you to view the entire text of the Terms & Policy document, cancel the Smart Hub service agreement, and perform a self-diagnosis and reset of Smart Hub settings. This option can be accessed by navigating to Settings Support.",
+      "generated_answer": "The Settings option within Smart Hub allows you to manage your preferences and view the Terms & Policy; if you wish to stop using Smart Hub, you can cancel through this menu (doc_19, doc_323). To access it, press the left directional button while in Smart Hub to move to Settings (doc_619, doc_2811).",
+      "retrieval_overlap": 1.0,
+      "answer_overlap": 0.2653061224489796,
+      "faithfulness_proxy": 0.1839080459770115
+    }
+  },
+  {
+    "datetime": "2026-07-01T18:20:38.644148+00:00",
+    "scores": {
+      "question": "I want to know about settings option in smart hub. What is it?",
+      "reference_answer": "The settings option in Smart Hub allows you to view the entire text of the Terms & Policy document, cancel the Smart Hub service agreement, and perform a self-diagnosis and reset of Smart Hub settings. This option can be accessed by navigating to Settings Support.",
+      "generated_answer": "The Settings option within Smart Hub allows you to manage your preferences and view the Terms & Policy; if you wish to stop using Smart Hub, you can cancel through this menu (doc_19, doc_323). To access it, press the left directional button while in Smart Hub to move to Settings (doc_619, doc_2811).",
+      "retrieval_overlap": 1.0,
+      "answer_overlap": 0.2653061224489796,
+      "faithfulness_proxy": 0.1797752808988764
+    }
+  },
+  {
+    "unique_name": "evaluation_20260701_183156",
+    "unique_name_config": "config_20260701_183156",
+    "datetime": "2026-07-01T18:31:56.540229+00:00",
+    "scores": {
+      "question": "What is the use of search option in tne smart hub?",
+      "reference_answer": "The search option in Smart Hub allows users to search the Internet, install and use various apps, view photos and videos, listen to music stored on external storage devices, and perform more functions.",
+      "generated_answer": "The search function allows you to find channels, apps, movie titles, and other apps provided by the Smart Hub service. To use it, a Smart Hub service agreement is required.",
+      "retrieval_overlap": 0.8,
+      "answer_overlap": 0.20512820512820512,
+      "faithfulness_proxy": 0.17857142857142858
+    }
+  },
+  {
+    "unique_name": "evaluation_20260701_183443",
+    "unique_name_config": "config_20260701_183443",
+    "datetime": "2026-07-01T18:34:43.687864+00:00",
+    "scores": {
+      "question": "What is the use of search option in tne smart hub?",
+      "reference_answer": "The search option in Smart Hub allows users to search the Internet, install and use various apps, view photos and videos, listen to music stored on external storage devices, and perform more functions.",
+      "generated_answer": "The search function allows you to find channels, apps, movie titles, and other apps provided by the Smart Hub service. To use it, a Smart Hub service agreement is required.",
+      "retrieval_overlap": 0.8,
+      "answer_overlap": 0.20512820512820512,
+      "faithfulness_proxy": 0.18292682926829268
+    }
+  },
+  {
+    "unique_name": "evaluation_20260703_154638",
+    "unique_name_config": "config_20260703_154638",
+    "datetime": "2026-07-03T15:46:38.416886+00:00",
+    "scores": {
+      "question": "What is the use of search option in tne smart hub?",
+      "reference_answer": "The search option in Smart Hub allows users to search the Internet, install and use various apps, view photos and videos, listen to music stored on external storage devices, and perform more functions.",
+      "generated_answer": "The search function allows you to find channels, apps, movie titles, and other apps provided by the Smart Hub service. To use it, a Smart Hub service agreement is required.",
+      "retrieval_overlap": 0.8,
+      "answer_overlap": 0.20512820512820512,
+      "faithfulness_proxy": 0.18292682926829268
+    }
+  },
+  {
+    "unique_name": "evaluation_20260703_173959",
+    "unique_name_config": "config_20260703_173959",
+    "datetime": "2026-07-03T17:39:59.520904+00:00",
+    "scores": {
+      "question": "What is the use of search option in tne smart hub?",
+      "reference_answer": "The search option in Smart Hub allows users to search the Internet, install and use various apps, view photos and videos, listen to music stored on external storage devices, and perform more functions.",
+      "generated_answer": "You can use the search option in Smart Hub to search for apps or games (to between external devices connected to the Search You can search the apps or games in Smart Hub) and for channels, apps, titles of movies, or apps provided by the Smart Hub service.",
+      "retrieval_overlap": 0.8,
+      "answer_overlap": 0.225,
+      "faithfulness_proxy": 0.25
+    }
+  },
+  {
+    "unique_name": "evaluation_20260703_180027",
+    "unique_name_config": "config_20260703_180027",
+    "datetime": "2026-07-03T18:00:27.905991+00:00",
+    "scores": {
+      "question": "What is the use of search option in tne smart hub?",
+      "reference_answer": "The search option in Smart Hub allows users to search the Internet, install and use various apps, view photos and videos, listen to music stored on external storage devices, and perform more functions.",
+      "generated_answer": "You can use the search option in Smart Hub to search for apps or games [1, 2]. It can also be used for searching channels, apps, titles of movies, or apps provided by the Smart Hub service [3, 4].",
+      "retrieval_overlap": 0.8,
+      "answer_overlap": 0.16666666666666666,
+      "faithfulness_proxy": 0.17857142857142858
+    }
+  },
+  {
+    "unique_name": "evaluation_20260703_180447",
+    "unique_name_config": "config_20260703_180447",
+    "datetime": "2026-07-03T18:04:47.627525+00:00",
+    "scores": {
+      "question": "What is the use of search option in tne smart hub?",
+      "reference_answer": "The search option in Smart Hub allows users to search the Internet, install and use various apps, view photos and videos, listen to music stored on external storage devices, and perform more functions.",
+      "generated_answer": "You can search the apps or games in Smart Hub between external devices connected to the Search [function] (document_1071, doc_3263, doc_1140, doc_3332, doc_2203).\n\nThe search can be used for:\n*   Channels\n*   Apps\n*   Titles of movies\n*   Apps provided by the Smart Hub service (document_1071, doc_3263, doc_1140, doc_3332, doc_2203).",
+      "retrieval_overlap": 0.8,
+      "answer_overlap": 0.1111111111111111,
+      "faithfulness_proxy": 0.1724137931034483
+    }
+  },
+  {
+    "unique_name": "evaluation_20260704_045016",
+    "unique_name_config": "config_20260704_045016",
+    "datetime": "2026-07-04T04:50:16.542413+00:00",
+    "scores": {
+      "question": "What is the use of search option in tne smart hub?",
+      "reference_answer": "The search option in Smart Hub allows users to search the Internet, install and use various apps, view photos and videos, listen to music stored on external storage devices, and perform more functions.",
+      "generated_answer": "The search option in Smart Hub allows you to search for apps or games (context). You can also use it to search for channels, apps, titles of movies, or apps provided by the Smart Hub service (context).",
+      "retrieval_overlap": 0.8,
+      "answer_overlap": 0.21621621621621623,
+      "faithfulness_proxy": 0.1875
+    }
+  }
+]

@@ -4,8 +4,8 @@ from .recursive import RecursiveChunker
 from .factory import ChunkingFactory
 
 __all__ = [
-    "BaseChunker",
-    "FixedSizeChunker",
-    "RecursiveChunker",
+    # "BaseChunker",
+    # "FixedSizeChunker",
+    # "RecursiveChunker",
     "ChunkingFactory"
 ]

@@ -3,9 +3,14 @@ extends: baseline.yaml
 data_loader:
   source: local
   dataset_name: suniltvl/ragbench
-  subset: covidqa
+  subset: emanual
   split: validation
   data_dir: ./data/rag_bench
   file_extension: parquet
+
+vector_store:
+  provider: chroma
+  collection_name: coll_emanual
+  persist_directory: ./db/chroma_db
 
   

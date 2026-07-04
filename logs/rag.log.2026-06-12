@@ -1,0 +1,147 @@
+2026-06-12 12:11:40,989 | INFO	| real_world_rag | RAG System started
+2026-06-12 12:11:40,992 | INFO	| real_world_rag | ========================================
+2026-06-12 12:11:40,992 | INFO	| real_world_rag | Hello from real-world-rag-system!
+2026-06-12 12:11:40,992 | INFO	| real_world_rag | ========================================
+2026-06-12 12:11:40,993 | INFO	| real_world_rag | Loading configuration from file... src/rag_flow_config/offline_data.yaml
+2026-06-12 12:11:40,996 | DEBUG	| real_world_rag | Data loader config: source=<DataLoaderSource.LOCAL: 'local'> path=None dataset_name='suniltvl/ragbench' subset='covidqa' split='validation' cache_dir=None data_dir='./data/rag_bench' streaming=True file_extension='parquet'
+2026-06-12 12:11:40,996 | INFO	| real_world_rag | Data loader initialized
+2026-06-12 12:11:40,997 | INFO	| real_world_rag | RAG System started
+2026-06-12 12:11:40,997 | DEBUG	| real_world_rag | Loader created: <src.rag_components.data_loaders.local_loader.LocalLoader object at 0x0000020652265E50>
+2026-06-12 12:11:40,997 | INFO	| real_world_rag | Loading local data...
+2026-06-12 12:11:42,397 | DEBUG	| real_world_rag | Loader created: Dataset({
+    features: ['id', 'question', 'documents', 'response', 'generation_model_name', 'annotating_model_name', 'dataset_name', 'documents_sentences', 'response_sentences', 'sentence_support_information', 'unsupported_response_sentence_keys', 'adherence_score', 'overall_supported_explanation', 'relevance_explanation', 'all_relevant_sentence_keys', 'all_utilized_sentence_keys', 'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness', 'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance', 'gpt35_utilization', 'relevance_score', 'utilization_score', 'completeness_score'],
+    num_rows: 267
+})
+2026-06-12 12:11:42,397 | INFO	| real_world_rag | Data loaded: 267 documents found
+2026-06-12 12:11:42,400 | INFO	| real_world_rag | Chunker initialized
+2026-06-12 12:11:42,400 | INFO	| real_world_rag | RAG System started
+2026-06-12 12:11:42,527 | INFO	| real_world_rag | Number of chunks created: 1068
+2026-06-12 12:12:47,940 | INFO	| real_world_rag | RAG System started
+2026-06-12 12:12:47,942 | INFO	| real_world_rag | ========================================
+2026-06-12 12:12:47,942 | INFO	| real_world_rag | Hello from real-world-rag-system!
+2026-06-12 12:12:47,942 | INFO	| real_world_rag | ========================================
+2026-06-12 12:12:47,942 | INFO	| real_world_rag | Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml
+2026-06-12 12:12:47,946 | DEBUG	| real_world_rag | Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='techqa' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension=''
+2026-06-12 12:12:47,947 | INFO	| real_world_rag | Data loader initialized
+2026-06-12 12:12:47,947 | INFO	| real_world_rag | RAG System started
+2026-06-12 12:12:47,947 | DEBUG	| real_world_rag | Loader created: <src.rag_components.data_loaders.huggingface_loader.HuggingFaceDataLoader object at 0x000001E8C92E7B60>
+2026-06-12 12:12:47,947 | INFO	| real_world_rag | Loading HuggingFace dataset: suniltvl/ragbench
+2026-06-12 12:12:59,546 | DEBUG	| real_world_rag | Loader created: Dataset({
+    features: ['id', 'question', 'documents', 'response', 'generation_model_name', 'annotating_model_name', 'dataset_name', 'documents_sentences', 'response_sentences', 'sentence_support_information', 'unsupported_response_sentence_keys', 'adherence_score', 'overall_supported_explanation', 'relevance_explanation', 'all_relevant_sentence_keys', 'all_utilized_sentence_keys', 'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness', 'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance', 'gpt35_utilization', 'relevance_score', 'utilization_score', 'completeness_score'],
+    num_rows: 314
+})
+2026-06-12 12:12:59,547 | INFO	| real_world_rag | Data loaded: 314 documents found
+2026-06-12 12:12:59,549 | INFO	| real_world_rag | Chunker initialized
+2026-06-12 12:12:59,549 | INFO	| real_world_rag | RAG System started
+2026-06-12 12:13:00,270 | INFO	| real_world_rag | Number of chunks created: 1570
+2026-06-12 12:14:18,769 | INFO	| real_world_rag | RAG System started
+2026-06-12 12:14:18,769 | INFO	| real_world_rag | ========================================
+2026-06-12 12:14:18,771 | INFO	| real_world_rag | Hello from real-world-rag-system!
+2026-06-12 12:14:18,771 | INFO	| real_world_rag | ========================================
+2026-06-12 12:14:18,771 | INFO	| real_world_rag | Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml
+2026-06-12 12:14:18,774 | DEBUG	| real_world_rag | Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='tatqa' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension=''
+2026-06-12 12:14:18,774 | INFO	| real_world_rag | Data loader initialized
+2026-06-12 12:14:18,774 | INFO	| real_world_rag | RAG System started
+2026-06-12 12:14:18,774 | DEBUG	| real_world_rag | Loader created: <src.rag_components.data_loaders.huggingface_loader.HuggingFaceDataLoader object at 0x00000261ADBFAAB0>
+2026-06-12 12:14:18,774 | INFO	| real_world_rag | Loading HuggingFace dataset: suniltvl/ragbench
+2026-06-12 12:14:45,900 | DEBUG	| real_world_rag | Loader created: Dataset({
+    features: ['id', 'question', 'documents', 'response', 'generation_model_name', 'annotating_model_name', 'dataset_name', 'documents_sentences', 'response_sentences', 'sentence_support_information', 'unsupported_response_sentence_keys', 'adherence_score', 'overall_supported_explanation', 'relevance_explanation', 'all_relevant_sentence_keys', 'all_utilized_sentence_keys', 'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness', 'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance', 'gpt35_utilization', 'relevance_score', 'utilization_score', 'completeness_score'],
+    num_rows: 3338
+})
+2026-06-12 12:14:45,900 | INFO	| real_world_rag | Data loaded: 3338 documents found
+2026-06-12 12:14:45,901 | INFO	| real_world_rag | Chunker initialized
+2026-06-12 12:14:45,901 | INFO	| real_world_rag | RAG System started
+2026-06-12 12:14:47,144 | INFO	| real_world_rag | Number of chunks created: 15376
+2026-06-12 12:15:11,718 | INFO	| real_world_rag | RAG System started
+2026-06-12 12:15:11,718 | INFO	| real_world_rag | ========================================
+2026-06-12 12:15:11,718 | INFO	| real_world_rag | Hello from real-world-rag-system!
+2026-06-12 12:15:11,719 | INFO	| real_world_rag | ========================================
+2026-06-12 12:15:11,719 | INFO	| real_world_rag | Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml
+2026-06-12 12:15:11,721 | DEBUG	| real_world_rag | Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='hotpotqa' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension=''
+2026-06-12 12:15:11,721 | INFO	| real_world_rag | Data loader initialized
+2026-06-12 12:15:11,721 | INFO	| real_world_rag | RAG System started
+2026-06-12 12:15:11,721 | DEBUG	| real_world_rag | Loader created: <src.rag_components.data_loaders.huggingface_loader.HuggingFaceDataLoader object at 0x000001D8E475EC30>
+2026-06-12 12:15:11,722 | INFO	| real_world_rag | Loading HuggingFace dataset: suniltvl/ragbench
+2026-06-12 12:15:24,454 | DEBUG	| real_world_rag | Loader created: Dataset({
+    features: ['id', 'question', 'documents', 'response', 'generation_model_name', 'annotating_model_name', 'dataset_name', 'documents_sentences', 'response_sentences', 'sentence_support_information', 'unsupported_response_sentence_keys', 'adherence_score', 'overall_supported_explanation', 'relevance_explanation', 'all_relevant_sentence_keys', 'all_utilized_sentence_keys', 'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness', 'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance', 'gpt35_utilization', 'relevance_score', 'utilization_score', 'completeness_score'],
+    num_rows: 390
+})
+2026-06-12 12:15:24,454 | INFO	| real_world_rag | Data loaded: 390 documents found
+2026-06-12 12:15:24,455 | INFO	| real_world_rag | Chunker initialized
+2026-06-12 12:15:24,455 | INFO	| real_world_rag | RAG System started
+2026-06-12 12:15:24,603 | INFO	| real_world_rag | Number of chunks created: 1557
+2026-06-12 12:43:29,877 | INFO	| real_world_rag | RAG System started
+2026-06-12 12:43:29,878 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 12:43:29,878 | INFO	| real_world_rag | Hello from real-world-rag-system!
+2026-06-12 12:43:29,878 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 12:43:29,878 | INFO	| real_world_rag | Using device: cpu
+2026-06-12 13:51:36,458 | INFO	| real_world_rag | RAG System started
+2026-06-12 13:51:36,459 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 13:51:36,459 | INFO	| real_world_rag | Hello from real-world-rag-system!
+2026-06-12 13:51:36,459 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 13:51:36,465 | INFO	| real_world_rag | Using device: cuda
+2026-06-12 13:53:10,275 | INFO	| real_world_rag | RAG System started
+2026-06-12 13:53:10,276 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 13:53:10,276 | INFO	| real_world_rag | Hello from real-world-rag-system!
+2026-06-12 13:53:10,276 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 13:53:10,278 | INFO	| real_world_rag | Using device: cuda
+2026-06-12 13:53:10,278 | INFO	| real_world_rag | Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml
+2026-06-12 13:53:10,281 | DEBUG	| real_world_rag | Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='emanual' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension=''
+2026-06-12 13:53:10,281 | INFO	| real_world_rag | Data loader initialized
+2026-06-12 13:53:10,281 | INFO	| real_world_rag | RAG System started
+2026-06-12 13:53:10,281 | DEBUG	| real_world_rag | Loader created: <src.rag_components.data_loaders.huggingface_loader.HuggingFaceDataLoader object at 0x0000029D7957D6D0>
+2026-06-12 13:53:10,281 | INFO	| real_world_rag | Loading HuggingFace dataset: suniltvl/ragbench
+2026-06-12 13:53:17,981 | DEBUG	| real_world_rag | Loader created: Dataset({
+    features: ['id', 'question', 'documents', 'response', 'generation_model_name', 'annotating_model_name', 'dataset_name', 'documents_sentences', 'response_sentences', 'sentence_support_information', 'unsupported_response_sentence_keys', 'adherence_score', 'overall_supported_explanation', 'relevance_explanation', 'all_relevant_sentence_keys', 'all_utilized_sentence_keys', 'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness', 'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance', 'gpt35_utilization', 'relevance_score', 'utilization_score', 'completeness_score'],
+    num_rows: 132
+})
+2026-06-12 13:53:17,982 | INFO	| real_world_rag | Data loaded: 132 documents found
+2026-06-12 13:53:17,983 | INFO	| real_world_rag | Chunker initialized
+2026-06-12 13:53:17,983 | INFO	| real_world_rag | RAG System started
+2026-06-12 13:53:18,035 | INFO	| real_world_rag | Number of chunks created: 396
+2026-06-12 14:49:02,589 | INFO	| real_world_rag | RAG System started
+2026-06-12 14:49:02,590 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 14:49:02,590 | INFO	| real_world_rag | Hello from real-world-rag-system!
+2026-06-12 14:49:02,592 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 14:49:02,596 | INFO	| real_world_rag | Using device: cuda
+2026-06-12 14:49:02,596 | INFO	| real_world_rag | Embedder initialized
+2026-06-12 16:03:56,110 | INFO	| real_world_rag | RAG System started
+2026-06-12 16:03:56,110 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 16:03:56,110 | INFO	| real_world_rag | Hello from real-world-rag-system!
+2026-06-12 16:03:56,110 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 16:03:56,111 | INFO	| real_world_rag | Embedder initialized
+2026-06-12 16:05:13,398 | INFO	| real_world_rag | RAG System started
+2026-06-12 16:05:13,398 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 16:05:13,398 | INFO	| real_world_rag | Hello from real-world-rag-system!
+2026-06-12 16:05:13,400 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 16:05:13,400 | INFO	| real_world_rag | Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml
+2026-06-12 16:05:13,402 | DEBUG	| real_world_rag | Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='emanual' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension=''
+2026-06-12 16:05:13,403 | INFO	| real_world_rag | Embedder initialized
+2026-06-12 16:08:04,378 | INFO	| real_world_rag | RAG System started
+2026-06-12 16:08:04,378 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 16:08:04,378 | INFO	| real_world_rag | Hello from real-world-rag-system!
+2026-06-12 16:08:04,379 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 16:08:04,379 | INFO	| real_world_rag | Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml
+2026-06-12 16:08:04,381 | DEBUG	| real_world_rag | Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='emanual' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension=''
+2026-06-12 16:08:04,382 | INFO	| real_world_rag | embedding initialized
+2026-06-12 16:09:41,831 | INFO	| real_world_rag | RAG System started
+2026-06-12 16:09:41,831 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 16:09:41,831 | INFO	| real_world_rag | Hello from real-world-rag-system!
+2026-06-12 16:09:41,832 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 16:09:41,832 | INFO	| real_world_rag | Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml
+2026-06-12 16:09:41,834 | DEBUG	| real_world_rag | Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='emanual' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension=''
+2026-06-12 16:09:41,834 | INFO	| real_world_rag | embedding initialized
+2026-06-12 16:10:35,575 | INFO	| real_world_rag | RAG System started
+2026-06-12 16:10:35,575 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 16:10:35,575 | INFO	| real_world_rag | Hello from real-world-rag-system!
+2026-06-12 16:10:35,575 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 16:10:35,576 | INFO	| real_world_rag | Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml
+2026-06-12 16:10:35,577 | DEBUG	| real_world_rag | Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='emanual' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension=''
+2026-06-12 16:10:35,579 | INFO	| real_world_rag | embedding initialized
+2026-06-12 16:11:21,236 | INFO	| real_world_rag | RAG System started
+2026-06-12 16:11:21,236 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 16:11:21,237 | INFO	| real_world_rag | Hello from real-world-rag-system!
+2026-06-12 16:11:21,237 | INFO	| real_world_rag | ==========================================================================================
+2026-06-12 16:11:21,237 | INFO	| real_world_rag | Loading configuration from file... src/rag_flow_config/rag_bench_data.yaml
+2026-06-12 16:11:21,240 | DEBUG	| real_world_rag | Data loader config: source=<DataLoaderSource.HUGGINGFACE: 'huggingface'> path=None dataset_name='suniltvl/ragbench' subset='emanual' split='test' cache_dir='./data/hf_cache' data_dir=None streaming=False file_extension=''
+2026-06-12 16:11:21,240 | INFO	| real_world_rag | embedding initialized

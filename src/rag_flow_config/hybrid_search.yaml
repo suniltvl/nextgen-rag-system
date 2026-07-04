@@ -2,4 +2,5 @@ extends: baseline.yaml
 
 retrieval:
   type: hybrid
+  top_k: 10
   alpha: 0.3

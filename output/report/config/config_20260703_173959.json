@@ -1,0 +1,57 @@
+{
+  "experiment": {
+    "name": "baseline_rag",
+    "version": 1.0
+  },
+  "pipeline": {
+    "query_classification": false,
+    "reranking": false,
+    "summarization": false
+  },
+  "data_loader": {
+    "source": "local",
+    "path": null,
+    "dataset_name": "suniltvl/ragbench",
+    "subset": "emanual",
+    "split": "validation",
+    "cache_dir": null,
+    "data_dir": "./data/rag_bench",
+    "streaming": true,
+    "file_extension": "parquet",
+    "base_url": null
+  },
+  "chunking": {
+    "strategy": "recursive",
+    "chunk_size": 512,
+    "chunk_overlap": 50
+  },
+  "embedding": {
+    "provider": "huggingface",
+    "model": "BAAI/bge-small-en-v1.5"
+  },
+  "vector_store": {
+    "provider": "chroma",
+    "collection_name": "coll_emanual",
+    "persist_directory": "./db/chroma_db"
+  },
+  "retrieval": {
+    "type": "similarity",
+    "top_k": 5
+  },
+  "generator": {
+    "provider": "lmstudio",
+    "model_name": "google/gemma-4-e2b",
+    "temperature": 0.0,
+    "base_url": "http://localhost:1234/v1",
+    "api_key": "lm-studio"
+  },
+  "evaluation": {
+    "dataset": "ragbench",
+    "metrics": [
+      "context_relevance",
+      "context_utilization",
+      "answer_faithfulness",
+      "answer_completeness"
+    ]
+  }
+}

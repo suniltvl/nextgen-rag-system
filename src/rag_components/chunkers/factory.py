@@ -22,4 +22,6 @@ class ChunkingFactory:
         elif strategy == ChunkingStrategy.RECURSIVE:
             return RecursiveChunker(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
         
-        raise ValueError(f"Unknown chunking strategy: {strategy}")
+        else:
+            print(f"Unknown chunking strategy: {strategy}")
+            raise ValueError(f"Unknown chunking strategy: {strategy}")

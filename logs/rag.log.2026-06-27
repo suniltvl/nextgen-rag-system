@@ -1,0 +1,127 @@
+2026-06-27 13:48:47,470 | DEBUG	| real_world_rag |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  documents
+0  [Smart Hub. View descriptions of Smart Hub's basic functions. From Smart Hub, you can use the Internet search function, install and use various apps, view photos and videos, or listen to music stored on external storage devices, and perform more functions. Some Smart Hub services are paid services. To use Smart Hub , the TV must be connected to the Internet. Some Smart Hub features may not be supported depending on the service provider, language, or geographical area. Smart Hub service outages can be caused by disruptions in your Internet service. You can view the entire text of the Terms & Policy document by navigating to Settings Support Terms & Policy Try Now If you want to stop using Smart Hub , you can cancel the agreement. To cancel the Smart Hub service agreement, select Reset Smart Hub Settings Support Self Diagnosis Reset Smart Hub ). Note that accepting and maintaining the Smart Hub service agreement is required if you want to use Smart Hub and other features and functions on your TV. , Smart Hub. After pressing the button on your remote control, you can surf the web and download apps with Smart Hub. Some Smart Hub services are for pay services. To use Smart Hub , the TV must be connected to the Internet. Some Smart Hub features may not be supported depending on the service provider, language, or geographical area. Smart Hub service outages can be caused by disruptions to your Internet service. You can view the entire text of the Terms & Policy by navigating to Settings Support Terms & Policy If you want to stop using Smart Hub , you can cancel the agreement. To cancel the Smart Hub service agreement, select Reset Smart Hub Settings Support Self Diagnosis Reset Smart Hub ). Note that accepting and maintaining the Smart Hub service agreement is required if you want to use Smart Hub and other features and functions on your TV. Press the button on your remote. This will bring up a display with 2 rows. Try moving the focus to Live TV another item on the bottom row. The options on the top row change depending on the item selected in the bottom row. The buttons to the right of Live TV provide quick access to apps such as Netflix and Amazon . Currently, many of these apps are not accessible with Voice Guide. Use the left and right directional buttons to move between a menu or apps on a row and the up and down directional buttons to move between rows. Press Select to access a menu or apps. When you open Smart Hub , you will be on Live TV TV PLUS . Press the up directional button to move to the top row. You will be on the Guide item. The items in this row are: Guide : Select to go to the Program Guide where you can view the program schedules for multiple channels. Channel List : Select to open the channel list to view and move to programs that are being broadcast on other channels. Schedule Manager Recordings : You can go to the Schedule Manager Recording & Schedule Manager screen. This function may not be supported depending on the model or geographical area. To the right of Schedule Manager Recordings , you can see the programs you viewed most recently and the programs that are currently broadcasting on other channels. To go to one of those channels, move to it, and then press the Select button. , Smart Features. You can enjoy various apps with Smart Hub.]
+2026-06-27 13:48:47,474 | DEBUG	| real_world_rag |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              documents_sentences
+0  [[[0a, Smart Hub. View descriptions of Smart Hub's basic functions.], [0b, From Smart Hub, you can use the Internet search function, install and use various apps, view photos and videos, or listen to music stored on external storage devices, and perform more functions.], [0c, Some Smart Hub services are paid services.], [0d, To use Smart Hub , the TV must be connected to the Internet.], [0e, Some Smart Hub features may not be supported depending on the service provider, language, or geographical area.], [0f, Smart Hub service outages can be caused by disruptions in your Internet service.], [0g, You can view the entire text of the Terms & Policy document by navigating to Settings Support Terms & Policy Try Now If you want to stop using Smart Hub , you can cancel the agreement.], [0h, To cancel the Smart Hub service agreement, select Reset Smart Hub Settings Support Self Diagnosis Reset Smart Hub ).], [0i, Note that accepting and maintaining the Smart Hub service agreement is required if you want to use Smart Hub and other features and functions on your TV.]], [[1a, Smart Hub. After pressing the button on your remote control, you can surf the web and download apps with Smart Hub.], [1b, Some Smart Hub services are for pay services.], [1c, To use Smart Hub , the TV must be connected to the Internet.], [1d, Some Smart Hub features may not be supported depending on the service provider, language, or geographical area.], [1e, Smart Hub service outages can be caused by disruptions to your Internet service.], [1f, You can view the entire text of the Terms & Policy by navigating to Settings Support Terms & Policy If you want to stop using Smart Hub , you can cancel the agreement.], [1g, To cancel the Smart Hub service agreement, select Reset Smart Hub Settings Support Self Diagnosis Reset Smart Hub ).], [1h, Note that accepting and maintaining the Smart Hub service agreement is required if you want to use Smart Hub and other features and functions on your TV.], [1i, Press the button on your remote.], [1j, This will bring up a display with 2 rows.], [1k, Try moving the focus to Live TV another item on the bottom row.], [1l, The options on the top row change depending on the item selected in the bottom row.], [1m, The buttons to the right of Live TV provide quick access to apps such as Netflix and Amazon .], [1n, Currently, many of these apps are not accessible with Voice Guide.], [1o, Use the left and right directional buttons to move between a menu or apps on a row and the up and down directional buttons to move between rows.], [1p, Press Select to access a menu or apps.], [1q, When you open Smart Hub , you will be on Live TV TV PLUS .], [1r, Press the up directional button to move to the top row.], [1s, You will be on the Guide item.], [1t, The items in this row are: Guide : Select to go to the Program Guide where you can view the program schedules for multiple channels.], [1u, Channel List : Select to open the channel list to view and move to programs that are being broadcast on other channels.], [1v, Schedule Manager Recordings : You can go to the Schedule Manager Recording & Schedule Manager screen.], [1w, This function may not be supported depending on the model or geographical area.], [1x, To the right of Schedule Manager Recordings , you can see the programs you viewed most recently and the programs that are currently broadcasting on other channels.], [1y, To go to one of those channels, move to it, and then press the Select button.]], [[2a, Smart Features. You can enjoy various apps with Smart Hub.]]]
+2026-06-27 14:16:17,497 | INFO	| real_world_rag | RAG System started
+2026-06-27 14:16:17,523 | INFO	| real_world_rag | Loading configuration from file... src/rag_flow_config/offline_data.yaml
+2026-06-27 14:16:17,548 | INFO	| real_world_rag | ==================================================
+2026-06-27 14:16:17,550 | INFO	| real_world_rag |                RAG Flow Start
+2026-06-27 14:16:17,551 | INFO	| real_world_rag | ==================================================
+2026-06-27 14:16:17,576 | INFO	| real_world_rag |  ♾️ Data Loader Settings : source=<DataLoaderSource.LOCAL: 'local'> path=None
+dataset_name='suniltvl/ragbench' subset='emanual' split='validation'
+cache_dir=None data_dir='./data/rag_bench' streaming=True
+file_extension='parquet' base_url=None
+2026-06-27 14:16:17,578 | INFO	| real_world_rag |  ♾️ Chunking Settings : strategy=<ChunkingStrategy.RECURSIVE: 'recursive'>
+chunk_size=100 chunk_overlap=20
+2026-06-27 14:16:17,580 | INFO	| real_world_rag |  ♾️ Embedding Settings : provider=<EmbeddingProvider.HUGGINGFACE: 'huggingface'>
+model='BAAI/bge-small-en-v1.5'
+2026-06-27 14:16:17,581 | INFO	| real_world_rag |  ♾️ Vector Store Settings : provider=<VectorStoreProvider.CHROMA: 'chroma'>
+collection_name='coll_emanual' persist_directory='./db/chroma_db'
+2026-06-27 14:16:17,582 | INFO	| real_world_rag | RAG System started
+2026-06-27 14:16:17,584 | INFO	| real_world_rag | RAG System started
+2026-06-27 14:16:21,629 | INFO	| real_world_rag | RAG System started
+2026-06-27 14:16:23,160 | INFO	| real_world_rag | ✅ Factory for DataLoader, Chunker, Embedder, VectorStore created Successfully
+2026-06-27 14:16:23,162 | INFO	| real_world_rag | Loading local data...
+2026-06-27 14:16:23,959 | DEBUG	| real_world_rag | Loader created: Dataset({     features: ['id', 'question', 'documents',
+'response', 'generation_model_name', 'annotating_model_name', 'dataset_name',
+'documents_sentences', 'response_sentences', 'sentence_support_information',
+'unsupported_response_sentence_keys', 'adherence_score',
+'overall_supported_explanation', 'relevance_explanation',
+'all_relevant_sentence_keys', 'all_utilized_sentence_keys',
+'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness',
+'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance',
+'gpt35_utilization', 'relevance_score', 'utilization_score',
+'completeness_score'],     num_rows: 132 })
+2026-06-27 14:16:23,961 | INFO	| real_world_rag | data_loader.column_names: ['id', 'question', 'documents', 'response',
+'generation_model_name', 'annotating_model_name', 'dataset_name',
+'documents_sentences', 'response_sentences', 'sentence_support_information',
+'unsupported_response_sentence_keys', 'adherence_score',
+'overall_supported_explanation', 'relevance_explanation',
+'all_relevant_sentence_keys', 'all_utilized_sentence_keys',
+'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness',
+'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance',
+'gpt35_utilization', 'relevance_score', 'utilization_score',
+'completeness_score']
+2026-06-27 14:16:23,961 | INFO	| real_world_rag | Documents Count: 132
+2026-06-27 15:02:16,597 | INFO	| real_world_rag | RAG System started
+2026-06-27 15:02:16,639 | INFO	| real_world_rag | Loading configuration from file... src/rag_flow_config/offline_data.yaml
+2026-06-27 15:02:16,673 | INFO	| real_world_rag | ==================================================
+2026-06-27 15:02:16,676 | INFO	| real_world_rag |                RAG Flow Start
+2026-06-27 15:02:16,678 | INFO	| real_world_rag | ==================================================
+2026-06-27 15:02:16,710 | INFO	| real_world_rag |  ♾️ Data Loader Settings : source=<DataLoaderSource.LOCAL: 'local'> path=None
+dataset_name='suniltvl/ragbench' subset='emanual' split='validation'
+cache_dir=None data_dir='./data/rag_bench' streaming=True
+file_extension='parquet' base_url=None
+2026-06-27 15:02:16,711 | INFO	| real_world_rag |  ♾️ Chunking Settings : strategy=<ChunkingStrategy.RECURSIVE: 'recursive'>
+chunk_size=100 chunk_overlap=20
+2026-06-27 15:02:16,713 | INFO	| real_world_rag |  ♾️ Embedding Settings : provider=<EmbeddingProvider.HUGGINGFACE: 'huggingface'>
+model='BAAI/bge-small-en-v1.5'
+2026-06-27 15:02:16,715 | INFO	| real_world_rag |  ♾️ Vector Store Settings : provider=<VectorStoreProvider.CHROMA: 'chroma'>
+collection_name='coll_emanual' persist_directory='./db/chroma_db'
+2026-06-27 15:02:16,716 | INFO	| real_world_rag | RAG System started
+2026-06-27 15:02:16,719 | INFO	| real_world_rag | RAG System started
+2026-06-27 15:02:20,294 | INFO	| real_world_rag | RAG System started
+2026-06-27 15:02:23,250 | INFO	| real_world_rag | ✅ Factory for DataLoader, Chunker, Embedder, VectorStore created Successfully
+2026-06-27 15:02:23,254 | INFO	| real_world_rag | Loading local data...
+2026-06-27 15:02:24,160 | DEBUG	| real_world_rag | Loader created: Dataset({     features: ['id', 'question', 'documents',
+'response', 'generation_model_name', 'annotating_model_name', 'dataset_name',
+'documents_sentences', 'response_sentences', 'sentence_support_information',
+'unsupported_response_sentence_keys', 'adherence_score',
+'overall_supported_explanation', 'relevance_explanation',
+'all_relevant_sentence_keys', 'all_utilized_sentence_keys',
+'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness',
+'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance',
+'gpt35_utilization', 'relevance_score', 'utilization_score',
+'completeness_score'],     num_rows: 132 })
+2026-06-27 15:02:24,162 | INFO	| real_world_rag | data_loader.column_names: ['id', 'question', 'documents', 'response',
+'generation_model_name', 'annotating_model_name', 'dataset_name',
+'documents_sentences', 'response_sentences', 'sentence_support_information',
+'unsupported_response_sentence_keys', 'adherence_score',
+'overall_supported_explanation', 'relevance_explanation',
+'all_relevant_sentence_keys', 'all_utilized_sentence_keys',
+'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness',
+'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance',
+'gpt35_utilization', 'relevance_score', 'utilization_score',
+'completeness_score']
+2026-06-27 15:02:24,164 | INFO	| real_world_rag | Documents Count: 132
+2026-06-27 15:08:18,021 | INFO	| real_world_rag | RAG System started
+2026-06-27 15:08:18,065 | INFO	| real_world_rag | Loading configuration from file... src/rag_flow_config/offline_data.yaml
+2026-06-27 15:08:18,102 | INFO	| real_world_rag | ==================================================
+2026-06-27 15:08:18,105 | INFO	| real_world_rag |                RAG Flow Start
+2026-06-27 15:08:18,106 | INFO	| real_world_rag | ==================================================
+2026-06-27 15:08:18,136 | INFO	| real_world_rag |  ♾️ Data Loader Settings : source=<DataLoaderSource.LOCAL: 'local'> path=None
+dataset_name='suniltvl/ragbench' subset='emanual' split='validation'
+cache_dir=None data_dir='./data/rag_bench' streaming=True
+file_extension='parquet' base_url=None
+2026-06-27 15:08:18,137 | INFO	| real_world_rag |  ♾️ Chunking Settings : strategy=<ChunkingStrategy.RECURSIVE: 'recursive'>
+chunk_size=100 chunk_overlap=20
+2026-06-27 15:08:18,139 | INFO	| real_world_rag |  ♾️ Embedding Settings : provider=<EmbeddingProvider.HUGGINGFACE: 'huggingface'>
+model='BAAI/bge-small-en-v1.5'
+2026-06-27 15:08:18,141 | INFO	| real_world_rag |  ♾️ Vector Store Settings : provider=<VectorStoreProvider.CHROMA: 'chroma'>
+collection_name='coll_emanual' persist_directory='./db/chroma_db'
+2026-06-27 15:08:18,142 | INFO	| real_world_rag | RAG System started
+2026-06-27 15:08:18,146 | INFO	| real_world_rag | RAG System started
+2026-06-27 15:08:21,679 | INFO	| real_world_rag | RAG System started
+2026-06-27 15:08:23,990 | INFO	| real_world_rag | ✅ Factory for DataLoader, Chunker, Embedder, VectorStore created Successfully
+2026-06-27 15:08:23,993 | INFO	| real_world_rag | Loading local data...
+2026-06-27 15:08:24,857 | DEBUG	| real_world_rag | Loader created: Dataset({     features: ['id', 'question', 'documents',
+'response', 'generation_model_name', 'annotating_model_name', 'dataset_name',
+'documents_sentences', 'response_sentences', 'sentence_support_information',
+'unsupported_response_sentence_keys', 'adherence_score',
+'overall_supported_explanation', 'relevance_explanation',
+'all_relevant_sentence_keys', 'all_utilized_sentence_keys',
+'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness',
+'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance',
+'gpt35_utilization', 'relevance_score', 'utilization_score',
+'completeness_score'],     num_rows: 132 })
+2026-06-27 15:08:24,861 | INFO	| real_world_rag | data_loader.column_names: ['id', 'question', 'documents', 'response',
+'generation_model_name', 'annotating_model_name', 'dataset_name',
+'documents_sentences', 'response_sentences', 'sentence_support_information',
+'unsupported_response_sentence_keys', 'adherence_score',
+'overall_supported_explanation', 'relevance_explanation',
+'all_relevant_sentence_keys', 'all_utilized_sentence_keys',
+'trulens_groundedness', 'trulens_context_relevance', 'ragas_faithfulness',
+'ragas_context_relevance', 'gpt3_adherence', 'gpt3_context_relevance',
+'gpt35_utilization', 'relevance_score', 'utilization_score',
+'completeness_score']
+2026-06-27 15:08:24,864 | INFO	| real_world_rag | Documents Count: 132

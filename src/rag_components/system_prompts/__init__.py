@@ -1,0 +1,8 @@
+
+from .prompts import BASIC_PROMPT, BASIC_RAG_PROMPT, ANOTHER_RAG_PROMPT
+
+__all__ = [
+    "BASIC_PROMPT",
+    "BASIC_RAG_PROMPT",
+    "ANOTHER_RAG_PROMPT",
+]

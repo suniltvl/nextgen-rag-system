@@ -1,0 +1,10 @@
+extends: baseline.yaml
+
+data_loader:
+  source: web
+  base_url: "https://huggingface.co/datasets/suniltvl/ragbench/blob/main/"
+  subset: emanual
+  split: ["validation", "test", "train"]
+  data_dir: ./data/rag_bench
+  file_extension: "parquet"
+  
