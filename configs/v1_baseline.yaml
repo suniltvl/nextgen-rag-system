@@ -52,5 +52,8 @@ generator:
   max_tokens: 512
   prompt_template: grounded_default
 
+runtime:
+  max_workers: 4  # match OLLAMA_NUM_PARALLEL on local Ollama
+
 output_dir: experiments/runs
 seed: 42

@@ -125,6 +125,12 @@ class DataCfg(BaseModel):
     cache_dir: Path | None = None
 
 
+class RuntimeCfg(BaseModel):
+    """Execution tuning — match ``max_workers`` to ``OLLAMA_NUM_PARALLEL``."""
+
+    max_workers: int = 1  # 1 = sequential; 4 typical for local Ollama on 48GB Mac
+
+
 class ExperimentCfg(BaseModel):
     """Top-level experiment description — one YAML file per V1..V8 variant."""
 
@@ -141,6 +147,7 @@ class ExperimentCfg(BaseModel):
     retriever: RetrieverCfg = Field(default_factory=DenseRetrieverCfg, discriminator="kind")
     reranker: RerankerCfg | None = None
     generator: GeneratorCfg = Field(default_factory=LLMGeneratorCfg, discriminator="kind")
+    runtime: RuntimeCfg = Field(default_factory=RuntimeCfg)
     output_dir: Path = Path("experiments/runs")
     seed: int = 42
 

@@ -41,7 +41,10 @@ def run(
     # Imported here to keep `--help` snappy.
     from rag_kag.pipeline import Pipeline
 
-    console.print(f"[bold]Running:[/] {cfg.name}  subset={cfg.data.subset}  limit={cfg.data.limit}")
+    console.print(
+        f"[bold]Running:[/] {cfg.name}  subset={cfg.data.subset}  "
+        f"limit={cfg.data.limit}  workers={cfg.runtime.max_workers}"
+    )
     run_dir = Pipeline(cfg, verbose=verbose).run()
     console.print(f"[green]Done.[/] Output: {run_dir}")
 

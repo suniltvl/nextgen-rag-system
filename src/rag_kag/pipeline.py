@@ -9,7 +9,8 @@ from __future__ import annotations
 import json
 import time
 from collections.abc import Iterable
-from dataclasses import asdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
 
@@ -26,8 +27,15 @@ from rag_kag.evaluators import TraceEvaluator, retrieval_diagnostics
 from rag_kag.evaluators.trace import TraceInputs
 from rag_kag.generators import build_generator
 from rag_kag.retrievers import build_retriever
-from rag_kag.types import Example, ExampleResult, TraceMetrics
+from rag_kag.types import Example, ExampleResult, GenerationResult, RetrievedChunk, TraceMetrics
 from rag_kag.vectorstores import build_vectorstore
+
+
+@dataclass(slots=True)
+class _PreparedExample:
+    example: Example
+    retrieved: list[RetrievedChunk]
+    prep_latency_s: float = 0.0
 
 
 class Pipeline:
@@ -64,28 +72,65 @@ class Pipeline:
             split=self.cfg.data.split,
             cache_dir=self.cfg.data.cache_dir,
         )
-        examples = loader.iter_examples(limit=self.cfg.data.limit)
+        examples = list(loader.iter_examples(limit=self.cfg.data.limit))
+        max_workers = max(1, self.cfg.runtime.max_workers)
+        use_parallel = max_workers > 1 and not self.verbose
 
         results: list[ExampleResult] = []
         per_example_path = run_dir / "examples.jsonl"
-        # In verbose mode, suppress tqdm so per-example logs aren't interleaved
-        # with the progress bar.
-        iterator = examples if self.verbose else tqdm(examples, desc=self.cfg.name)
-        with per_example_path.open("w") as f:
-            for idx, ex in enumerate(iterator):
-                if self.verbose:
-                    self._log_example_start(idx, ex)
-                result = self._run_one(ex)
-                f.write(json.dumps(_to_jsonable(asdict(result))) + "\n")
-                results.append(result)
-                if self.verbose:
-                    self._log_example_end(result)
+
+        if use_parallel:
+            results = self._run_parallel(examples, max_workers)
+            with per_example_path.open("w") as f:
+                for result in results:
+                    f.write(json.dumps(_to_jsonable(asdict(result))) + "\n")
+        else:
+            iterator = examples if self.verbose else tqdm(examples, desc=self.cfg.name)
+            with per_example_path.open("w") as f:
+                for idx, ex in enumerate(iterator):
+                    if self.verbose:
+                        self._log_example_start(idx, ex)
+                    result = self._run_one(ex)
+                    f.write(json.dumps(_to_jsonable(asdict(result))) + "\n")
+                    results.append(result)
+                    if self.verbose:
+                        self._log_example_end(result)
 
         summary = self._summarize(results)
         (run_dir / "summary.json").write_text(json.dumps(summary, indent=2))
         # Save the resolved config alongside results for reproducibility.
         (run_dir / "config.json").write_text(self.cfg.model_dump_json(indent=2))
         return run_dir
+
+    def _run_parallel(self, examples: list[Example], max_workers: int) -> list[ExampleResult]:
+        """Chunk/index/retrieve sequentially; parallelize LLM generation only."""
+        prepared: list[_PreparedExample] = []
+        for ex in tqdm(examples, desc=f"{self.cfg.name} prep"):
+            prepared.append(self._prepare(ex))
+
+        generations: list[GenerationResult | None] = [None] * len(prepared)
+        with ThreadPoolExecutor(max_workers=max_workers) as pool:
+            future_to_idx = {
+                pool.submit(
+                    self.generator.generate,
+                    prep.example.question,
+                    prep.retrieved,
+                ): idx
+                for idx, prep in enumerate(prepared)
+            }
+            for fut in tqdm(
+                as_completed(future_to_idx),
+                total=len(future_to_idx),
+                desc=f"{self.cfg.name} generate x{max_workers}",
+            ):
+                idx = future_to_idx[fut]
+                generations[idx] = fut.result()
+
+        results: list[ExampleResult] = []
+        for prep, gen in zip(prepared, generations, strict=True):
+            assert gen is not None
+            results.append(self._finish(prep, gen))
+        return results
 
     def run_one_example(self, example: Example) -> ExampleResult:
         """Public hook used by the UI / tests to run a single example."""
@@ -94,8 +139,20 @@ class Pipeline:
     # --- internals -------------------------------------------------------
 
     def _run_one(self, example: Example) -> ExampleResult:
-        start = time.perf_counter()
+        prep = self._prepare(example)
+        if self.verbose:
+            self._log_retrieved(prep.retrieved, 0.0)
+        gen = self.generator.generate(example.question, prep.retrieved)
+        if self.verbose:
+            self._log_step(
+                "generate",
+                f"model={gen.model}  answer={_truncate(gen.answer, 140)}",
+                gen.latency_s,
+            )
+        return self._finish(prep, gen)
 
+    def _prepare(self, example: Example) -> _PreparedExample:
+        start = time.perf_counter()
         t = time.perf_counter()
         chunks = self.chunker.chunk(example)
         if self.verbose:
@@ -121,20 +178,21 @@ class Pipeline:
         if self.verbose:
             self._log_retrieved(retrieved, time.perf_counter() - t)
 
-        t = time.perf_counter()
-        gen = self.generator.generate(example.question, retrieved)
-        if self.verbose:
-            self._log_step(
-                "generate",
-                f"model={gen.model}  answer={_truncate(gen.answer, 140)}",
-                time.perf_counter() - t,
-            )
+        return _PreparedExample(
+            example=example,
+            retrieved=retrieved,
+            prep_latency_s=time.perf_counter() - start,
+        )
+
+    def _finish(self, prep: _PreparedExample, gen: GenerationResult) -> ExampleResult:
+        example = prep.example
+        retrieved = prep.retrieved
+        top_k = getattr(self.cfg.retriever, "top_k", 5)
 
         metrics = self.trace.score(
             TraceInputs(example=example, retrieved=retrieved, answer=gen.answer)
         )
         diagnostics = retrieval_diagnostics(example, retrieved, k=top_k)
-        latency = time.perf_counter() - start
 
         return ExampleResult(
             example_id=example.id,
@@ -146,7 +204,7 @@ class Pipeline:
             metrics=metrics,
             diagnostics=diagnostics,
             reference_scores=example.reference_scores,
-            latency_s=latency,
+            latency_s=prep.prep_latency_s + gen.latency_s,
             model=gen.model,
         )
 
@@ -188,7 +246,7 @@ class Pipeline:
             for r in results:
                 if ref_key not in r.reference_scores:
                     continue
-                deltas.append(r.metrics.__dict__[ours_key] - r.reference_scores[ref_key])
+                deltas.append(getattr(r.metrics, ours_key) - r.reference_scores[ref_key])
             if deltas:
                 avg_delta[ours_key] = sum(deltas) / len(deltas)
 
