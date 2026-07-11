@@ -106,7 +106,7 @@ class Pipeline:
                 subset=example.subset,
                 question=example.question,
                 answer="No content available for retrieval after chunking.",
-                retrieved_chunks=[],
+                retrieved_chunk_ids=[],
                 metrics={},
                 diagnostics=None,
                 reference_scores=example.reference_scores,
