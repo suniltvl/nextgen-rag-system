@@ -98,6 +98,22 @@ class Pipeline:
 
         t = time.perf_counter()
         chunks = self.chunker.chunk(example)
+        if not chunks:
+            print(f"Skipping example {example.id} due to empty chunks after chunking.")
+            return ExampleResult(
+                example_id=example.id,
+                domain=example.domain,
+                subset=example.subset,
+                question=example.question,
+                answer="No content available for retrieval after chunking.",
+                retrieved_chunks=[],
+                metrics={},
+                diagnostics=None,
+                reference_scores=example.reference_scores,
+                latency_s=0,
+                model=None,
+            )
+
         if self.verbose:
             self._log_step(
                 "chunk",

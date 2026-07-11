@@ -15,14 +15,16 @@ def build_retriever(
     cfg: RetrieverCfg,
     *,
     embedder: Embedder,
-    vectorstore: VectorStore,
+    vectorstore: VectorStore
 ) -> Retriever:
     if isinstance(cfg, DenseRetrieverCfg):
         return DenseRetriever(embedder=embedder, store=vectorstore)
     if isinstance(cfg, BM25RetrieverCfg):
         return BM25Retriever()
     if isinstance(cfg, HybridRetrieverCfg):
-        return HybridRetriever(dense_retriever=DenseRetriever, bm25_retriever=BM25Retriever)
+        dense_retriever = DenseRetriever(embedder=embedder, store=vectorstore)
+        bm25_retriever = BM25Retriever()
+        return HybridRetriever(dense_retriever=dense_retriever, bm25_retriever=bm25_retriever)
     raise NotImplementedError(
         f"Retriever kind {cfg.kind!r} not yet implemented (BM25/hybrid/HyDE land in V4-V5)."
     )
