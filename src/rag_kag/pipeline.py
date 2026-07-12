@@ -107,7 +107,7 @@ class Pipeline:
                 question=example.question,
                 answer="No content available for retrieval after chunking.",
                 retrieved_chunk_ids=[],
-                metrics={},
+                metrics=TraceMetrics(0.0,0.0,0.0,0.0),
                 diagnostics=None,
                 reference_scores=example.reference_scores,
                 latency_s=0,
