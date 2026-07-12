@@ -24,7 +24,7 @@ generator:
   kind: llm
   model: ollama_chat/gemma4:e4b
   temperature: 0.0
-  max_tokens: 512
+  max_tokens: 1200
   prompt_template: grounded_default
 output_dir: experiments/runs
 seed: 42

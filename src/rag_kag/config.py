@@ -105,9 +105,9 @@ RerankerCfg = CrossEncoderRerankerCfg
 
 class LLMGeneratorCfg(BaseModel):
     kind: Literal["llm"] = "llm"
-    model: str = "ollama/llama3.1:8b"  # litellm-style identifier
+    model: str = "ollama_chat/gemma4:e4b"  # litellm-style identifier
     temperature: float = 0.0
-    max_tokens: int = 512
+    max_tokens: int = 1200
     prompt_template: str = "grounded_default"
 
 

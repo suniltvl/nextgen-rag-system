@@ -20,7 +20,7 @@ class LLMGenerator(Generator):
         self,
         model: str,
         temperature: float = 0.0,
-        max_tokens: int = 512,
+        max_tokens: int = 1200,
         prompt_template: str = "grounded_default",
     ):
         self.model = model
