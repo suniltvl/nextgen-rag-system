@@ -1,20 +1,58 @@
 import os
 from langchain_groq import ChatGroq
+from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 import json
 import re
+import threading
 from json_repair import repair_json
 from dotenv import load_dotenv
-from langchain_community.llms import MLXPipeline
-from mlx_lm import load, generate
 import sqlite3
-from google import genai
-from langchain_google_genai import ChatGoogleGenerativeAI
 import time
-import psycopg
-from psycopg.types.json import Jsonb
 import uuid
+from typing import Literal
+
+try:
+    from langchain_community.llms import MLXPipeline
+    from mlx_lm import load, generate
+except ImportError:
+    MLXPipeline = None  # type: ignore[misc, assignment]
+    load = generate = None  # type: ignore[misc, assignment]
+
+try:
+    from google import genai
+    from langchain_google_genai import ChatGoogleGenerativeAI
+except ImportError:
+    genai = None  # type: ignore[misc, assignment]
+    ChatGoogleGenerativeAI = None  # type: ignore[misc, assignment]
+
+try:
+    import psycopg
+    from psycopg.types.json import Jsonb
+except ImportError:
+    psycopg = None  # type: ignore[misc, assignment]
+    Jsonb = None  # type: ignore[misc, assignment]
+
+try:
+    from langchain_openai import ChatOpenAI
+except ImportError:
+    ChatOpenAI = None  # type: ignore[misc, assignment]
+
+_SQLITE_LOCK = threading.Lock()
+_JUDGE_RETRY_HINT = (
+    "\n\nIMPORTANT: Respond with valid JSON only. No markdown fences, no preamble."
+)
+
+
+def resolve_db_backend(database_url: str, db_backend: str | None = None) -> Literal["postgres", "sqlite"]:
+    if db_backend in ("postgres", "sqlite"):
+        return db_backend  # type: ignore[return-value]
+    if database_url.endswith(".db") or database_url.startswith("sqlite:"):
+        return "sqlite"
+    return "postgres"
+
+
 class RAGHelper:
 
     def __init__(self, api_key):
@@ -30,6 +68,7 @@ class RAGHelper:
         self.utilization = 0.0
         self.completeness = 0.0
         self.adherence = None
+        self.parse_error = False
         self.eval_message = ["""You will review a response to a question, checking whether it's supported by a set of source documents. Documents are split into sentences, each with a key (e.g. 'a0', 'b0').
 
 Documents:
@@ -74,6 +113,18 @@ Field instructions:
 Respond with valid JSON only — properly escaped quotes and newlines, no preamble, no postamble, no code fences.
         """]
 
+    def _make_chat_model(self, model: str, model_type: str, temperature: float = 0.0):
+        if model_type == "ollama":
+            return ChatOllama(model=model, temperature=temperature)
+        if model_type == "openai":
+            if ChatOpenAI is None:
+                raise RuntimeError("langchain-openai is not installed")
+            api_key = self.api_key or os.getenv("OPENAI_API_KEY")
+            if not api_key:
+                raise RuntimeError("OPENAI_API_KEY is not set")
+            return ChatOpenAI(model=model, temperature=temperature, api_key=api_key)
+        return ChatGroq(model=model, temperature=temperature, api_key=self.api_key)
+
     def get_embedding_model_name(self, retriever):
         # 1. Get the vector store
         vs = retriever.vectorstore
@@ -113,7 +164,8 @@ Respond with valid JSON only — properly escaped quotes and newlines, no preamb
         
 
     def simple_rag(self, query: str, expert_domain: str, retriever,
-                   gen_model: str="llama-3.1-8b-instant", temperature: float=0.0):
+                   gen_model: str="llama-3.1-8b-instant", temperature: float=0.0,
+                   model_type: str = "groq"):
         messages = [
         ("system", """You are a {expert_domain} expert. You are given a question and a list of documents and need to
         answer the question. Answer the question only based on these documents. These
@@ -122,9 +174,8 @@ Respond with valid JSON only — properly escaped quotes and newlines, no preamb
         ("human", "{question}"),
         ]
 
-        api_key = self.api_key
         q_prompt = ChatPromptTemplate(messages=messages)
-        q_model = ChatGroq(model=gen_model, temperature=temperature, api_key=api_key)
+        q_model = self._make_chat_model(gen_model, model_type, temperature)
         q_chain = q_prompt | q_model | StrOutputParser()
 
         context, sent_list = self.retriever_fn(retriever=retriever, query=query)
@@ -137,12 +188,12 @@ Respond with valid JSON only — properly escaped quotes and newlines, no preamb
         return (query, response, sent_list)
 
 
-    def evaluate_rag(self, query: str, response: str, sent_list: list, eval_model: str, temperature: float=0.0):
+    def evaluate_rag(self, query: str, response: str, sent_list: list, eval_model: str,
+                     temperature: float=0.0, model_type: str = "groq"):
         messages = self.eval_message
 
-        api_key = self.api_key
         eval_prompt = ChatPromptTemplate(messages=messages)
-        e_model = ChatGroq(model=eval_model, temperature=temperature, api_key=api_key)
+        e_model = self._make_chat_model(eval_model, model_type, temperature)
         eval_chain = eval_prompt | e_model | StrOutputParser()
 
         # context, sent_list = self.retriever_fn(retriever=retriever, query=query)
@@ -152,102 +203,147 @@ Respond with valid JSON only — properly escaped quotes and newlines, no preamb
 
         return eval_response
 
+    def evaluate_and_score_with_retry(
+        self,
+        query: str,
+        response: str,
+        sent_list: list,
+        eval_model: str,
+        *,
+        model_type: str = "groq",
+        max_retries: int = 3,
+    ) -> tuple[str, float | None, float | None, float | None, bool | None]:
+        """Run judge LLM with retries when JSON parsing fails."""
+        self.parse_error = False
+        last_eval = ""
+        for attempt in range(1, max_retries + 1):
+            try:
+                last_eval = self.evaluate_rag(
+                    query=query,
+                    response=response,
+                    sent_list=sent_list,
+                    eval_model=eval_model,
+                    model_type=model_type,
+                )
+                relevance, utilization, completeness, adherence = self.get_metrics(
+                    last_eval, sent_list
+                )
+                return last_eval, relevance, utilization, completeness, adherence
+            except Exception as err:
+                print(f"Judge parse attempt {attempt}/{max_retries} failed: {err}")
+                if attempt < max_retries:
+                    time.sleep(2 ** attempt)
+                    response_for_judge = response + _JUDGE_RETRY_HINT
+                    last_eval = self.evaluate_rag(
+                        query=query,
+                        response=response_for_judge,
+                        sent_list=sent_list,
+                        eval_model=eval_model,
+                        model_type=model_type,
+                    )
+                    try:
+                        relevance, utilization, completeness, adherence = self.get_metrics(
+                            last_eval, sent_list
+                        )
+                        return last_eval, relevance, utilization, completeness, adherence
+                    except Exception:
+                        continue
+        self.parse_error = True
+        self.relevance = None
+        self.utilization = None
+        self.completeness = None
+        self.adherence = None
+        return last_eval, None, None, None, None
+
     def db_insert(self,
               chunk_size: int,
               chunk_overlap: int,
               table_name: str, database_url: str,
               qid: int, vector_db: str, session_id,
-                  retrieval_type: str
+                  retrieval_type: str,
+                  db_backend: str | None = None
               
        
              ):
-        try:
-            # conn = sqlite3.connect(sqldb)
-            conn = psycopg.connect(database_url)
-            cursor = conn.cursor()
-           
-            # base_session_id = uuid.uuid4()
-            # for q, v in quest_dict.items():
-            #     # print(q)
+        backend = resolve_db_backend(database_url, db_backend)
+        session_id = str(session_id)
+        context = [str(sent) for sent in self.sent_list] if isinstance(self.sent_list, list) else [str(self.sent_list)]
+        adherence_val = int(self.adherence) if self.adherence is not None else None
+        parse_error = int(bool(self.parse_error))
 
-            #     response, sent_list = self.simple_rag(query=q, expert_domain=domain,
-            #                                          retriever=retriever, gen_model=gen_model,
-            #                                          temperature=temperature)
-
-            session_id = str(session_id)
-            id = qid
-            chunk_size = chunk_size
-            chunk_overlap = chunk_overlap
-            vector_db = vector_db
-            retreival_type = retrieval_type
-            gen_model = self.gen_model
-            embed_model = self.embed_model
-            eval_model = self. eval_model
-            search_type = self.search_type
-            search_kwargs = Jsonb(self.search_kwargs)
-            response = self.response
-            context = [str(sent) for sent in self.sent_list] if isinstance(self.sent_list, list) else [str(self.sent_list)]
-            adherence = self.adherence
-            relevance = self.relevance
-            utilization = self.utilization
-            completeness = self.completeness
-
-
-        
-            sql_query = f"""
-                INSERT INTO {table_name} (
-                  session_id,
-                  id,
-                  chunk_size,
-                  chunk_overlap,
-                  vector_db,
-                  retreival_type,
-                  gen_model,
-                  embed_model,
-                  eval_model,
-                  search_type,
-                  search_kwargs,
-                  response,
-                  context,
-                  adherence,
-                  relevance,
-                  utilization,
-                  completeness
-                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-            """
-    
-            values = (
+        columns = """
+                  session_id, id, chunk_size, chunk_overlap, vector_db,
+                  retreival_type, gen_model, embed_model, eval_model,
+                  search_type, search_kwargs, response, context,
+                  adherence, relevance, utilization, completeness, parse_error
+        """
+        values_common = (
             session_id,
-            id,
+            qid,
             chunk_size,
             chunk_overlap,
             vector_db,
-            retreival_type,
-            gen_model,
-            embed_model,
-            eval_model,
-            search_type,
-            search_kwargs,
-            response,
-            context,
-            adherence,
-            relevance,
-            utilization,
-            completeness
+            retrieval_type,
+            self.gen_model,
+            self.embed_model,
+            self.eval_model,
+            self.search_type,
+        )
+
+        try:
+            if backend == "sqlite":
+                sqlite_path = database_url.removeprefix("sqlite:")
+                conn = sqlite3.connect(sqlite_path)
+                cursor = conn.cursor()
+                sql_query = f"""
+                    INSERT INTO {table_name} ({columns})
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """
+                row = values_common + (
+                    json.dumps(self.search_kwargs),
+                    self.response,
+                    json.dumps(context),
+                    adherence_val,
+                    self.relevance,
+                    self.utilization,
+                    self.completeness,
+                    parse_error,
+                )
+                with _SQLITE_LOCK:
+                    cursor.execute(sql_query, row)
+                    conn.commit()
+                conn.close()
+                return
+
+            if psycopg is None:
+                raise RuntimeError("psycopg is not installed")
+            conn = psycopg.connect(database_url)
+            cursor = conn.cursor()
+            sql_query = f"""
+                INSERT INTO {table_name} (
+                  session_id, id, chunk_size, chunk_overlap, vector_db,
+                  retreival_type, gen_model, embed_model, eval_model,
+                  search_type, search_kwargs, response, context,
+                  adherence, relevance, utilization, completeness
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """
+            row = values_common + (
+                Jsonb(self.search_kwargs),
+                self.response,
+                context,
+                adherence_val,
+                self.relevance,
+                self.utilization,
+                self.completeness,
             )
-            cursor.execute(sql_query, values)
+            cursor.execute(sql_query, row)
             conn.commit()
-            # # print(f"{i}/{questions_count} completed")
-            # i += 1
-            # time.sleep(10)
-        
             conn.close()
-        
-            # print(f"All entries inserted")
 
         except Exception as e:
             print(e)
-            conn.close()
+            if "conn" in locals():
+                conn.close()
 
     def get_metrics(self, e, sl):
         relevance = 0.0
@@ -266,18 +362,13 @@ Respond with valid JSON only — properly escaped quotes and newlines, no preamb
             e_raw = e
         # try:
         data = json.loads(repair_json(e_raw))
-        # If the LLM returned a list, check if it contains the dictionary
         if isinstance(data, list):
             if len(data) > 0 and isinstance(data[0], dict):
-                e = data[0] # Assume the first item is the object we want
+                e = data[0]
             else:
-                print("CRITICAL: Received a list with no dictionary inside.")
-                return 0.0, 0.0, 0.0, False
+                raise ValueError("Received a list with no dictionary inside.")
         else:
             e = data
-        # except Exception as err:
-        #     print(f"Critical Parsing Error: {err}")
-        #     return 0.0, 0.0, 0.0, False
     
         total_sentences_len = len(sl)
         len_all_relevant_sentence_keys = len(e["all_relevant_sentence_keys"])

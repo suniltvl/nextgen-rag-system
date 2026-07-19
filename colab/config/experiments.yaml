@@ -1,0 +1,56 @@
+drive:
+  root: /content/drive/MyDrive/capstone-rag-kag
+
+defaults:
+  domain: biomedical
+  dataset: covidqa
+  parquet_split: train
+  embed_model_path: bge-small-en-v1.5
+  preset: covidqa_tuned
+  model_type: openai
+  gen_model: gpt-4o-mini
+  eval_model: gpt-4o-mini
+  search_type: similarity
+  search_k: 3
+  retrieval_type: dense
+  reranker: null
+  samples: 50
+  sample_offset: 0
+  index_limit: 0
+  max_workers: 2
+  judge_retries: 3
+  llm_retries: 3
+  rebuild_index: false
+  rebuild_db: false
+  resume: true
+
+presets:
+  covidqa_tuned:
+    chunk_size: 72
+    chunk_overlap: 18
+  saurav:
+    chunk_size: 1024
+    chunk_overlap: 200
+  baseline:
+    chunk_size: 256
+    chunk_overlap: 32
+
+domains:
+  biomedical:
+    dataset: covidqa
+  finance:
+    dataset: finqa
+  legal:
+    dataset: cuad
+  medical:
+    dataset: pubmedqa
+  tech:
+    dataset: techqa
+  qa:
+    dataset: hotpotqa
+  search:
+    dataset: msmarco
+  tables:
+    dataset: tatqa
+  manual:
+    dataset: emanual

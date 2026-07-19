@@ -16,6 +16,7 @@ eggs/
 .eggs/
 lib/
 lib64/
+!colab/lib/
 parts/
 sdist/
 var/
@@ -216,4 +217,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
-.env
+
+# Colab / local runtime outputs (persistent on Drive, not in git)
+runtime/
