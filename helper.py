@@ -5,16 +5,8 @@ from langchain_core.output_parsers import StrOutputParser
 import json
 import re
 from json_repair import repair_json
-from dotenv import load_dotenv
-from langchain_community.llms import MLXPipeline
-from mlx_lm import load, generate
-import sqlite3
-from google import genai
-from langchain_google_genai import ChatGoogleGenerativeAI
-import time
 import psycopg
 from psycopg.types.json import Jsonb
-import uuid
 class RAGHelper:
 
     def __init__(self, api_key):
