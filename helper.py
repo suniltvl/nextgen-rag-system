@@ -7,10 +7,13 @@ import re
 from json_repair import repair_json
 import psycopg
 from psycopg.types.json import Jsonb
+from langchain_openai import ChatOpenAI
+
 class RAGHelper:
 
-    def __init__(self, api_key):
+    def __init__(self, api_key, provider):
         self.api_key = api_key
+        self.provider = provider
         self.search_type = None
         self.search_kwargs = dict()
         self.gen_model = None
@@ -102,6 +105,31 @@ Respond with valid JSON only — properly escaped quotes and newlines, no preamb
 
         return (context, sent_list)
         
+    def get_llm(self, provider, model, temperature=0):
+        if provider == "groq":
+            return ChatGroq(
+                model=model,
+                temperature=temperature,
+                api_key=os.getenv("GROQ_API_KEY"),
+            )
+
+        elif provider == "lmstudio":
+            return ChatOpenAI(
+                model=model,
+                temperature=temperature,
+                base_url="http://localhost:1234/v1",
+                api_key="lm-studio",
+            )
+
+        elif provider == "openai":
+            return ChatOpenAI(
+                model=model,
+                temperature=temperature,
+                api_key=os.getenv("OPENAI_API_KEY"),
+            )
+
+        else:
+            raise ValueError(f"Unknown provider: {provider}")
         
 
     def simple_rag(self, query: str, expert_domain: str, retriever,
@@ -116,15 +144,21 @@ Respond with valid JSON only — properly escaped quotes and newlines, no preamb
 
         api_key = self.api_key
         q_prompt = ChatPromptTemplate(messages=messages)
-        q_model = ChatGroq(model=gen_model, temperature=temperature, api_key=api_key)
+        # q_model = ChatGroq(model=gen_model, temperature=temperature, api_key=api_key)
+        q_model = self.get_llm(
+            provider=self.provider,
+            model=gen_model,
+            temperature=temperature
+        )
         q_chain = q_prompt | q_model | StrOutputParser()
 
         context, sent_list = self.retriever_fn(retriever=retriever, query=query)
-    
+
         response = q_chain.invoke({"question": query, "context": context, "expert_domain": expert_domain})
         self.gen_model = gen_model
         self.response = response
         self.sent_list = sent_list
+        self.context = context
 
         return (query, response, sent_list)
 
@@ -134,7 +168,11 @@ Respond with valid JSON only — properly escaped quotes and newlines, no preamb
 
         api_key = self.api_key
         eval_prompt = ChatPromptTemplate(messages=messages)
-        e_model = ChatGroq(model=eval_model, temperature=temperature, api_key=api_key)
+        e_model = self.get_llm(
+            provider=self.provider,
+            model=eval_model,
+            temperature=temperature
+        )
         eval_chain = eval_prompt | e_model | StrOutputParser()
 
         # context, sent_list = self.retriever_fn(retriever=retriever, query=query)
@@ -143,6 +181,7 @@ Respond with valid JSON only — properly escaped quotes and newlines, no preamb
         self.eval_model = eval_model
 
         return eval_response
+
 
     def db_insert(self,
               chunk_size: int,
@@ -178,7 +217,7 @@ Respond with valid JSON only — properly escaped quotes and newlines, no preamb
             search_type = self.search_type
             search_kwargs = Jsonb(self.search_kwargs)
             response = self.response
-            context = [str(sent) for sent in self.sent_list] if isinstance(self.sent_list, list) else [str(self.sent_list)]
+            context = [self.context] if hasattr(self, 'context') and self.context else []
             adherence = self.adherence
             relevance = self.relevance
             utilization = self.utilization
@@ -227,6 +266,8 @@ Respond with valid JSON only — properly escaped quotes and newlines, no preamb
             utilization,
             completeness
             )
+
+            print(sql_query)
             cursor.execute(sql_query, values)
             conn.commit()
             # # print(f"{i}/{questions_count} completed")
@@ -256,20 +297,21 @@ Respond with valid JSON only — properly escaped quotes and newlines, no preamb
             e_raw = match.group(0)
         else:
             e_raw = e
-        # try:
-        data = json.loads(repair_json(e_raw))
-        # If the LLM returned a list, check if it contains the dictionary
-        if isinstance(data, list):
-            if len(data) > 0 and isinstance(data[0], dict):
-                e = data[0] # Assume the first item is the object we want
+        try:
+            data = json.loads(repair_json(e_raw))
+            # If the LLM returned a list, check if it contains the dictionary
+            if isinstance(data, list):
+                if len(data) > 0 and isinstance(data[0], dict):
+                    e = data[0] # Assume the first item is the object we want
+                else:
+                    print("CRITICAL: Received a list with no dictionary inside.")
+                    return 0.0, 0.0, 0.0, False
             else:
-                print("CRITICAL: Received a list with no dictionary inside.")
-                return 0.0, 0.0, 0.0, False
-        else:
-            e = data
-        # except Exception as err:
-        #     print(f"Critical Parsing Error: {err}")
-        #     return 0.0, 0.0, 0.0, False
+                e = data
+        except Exception as err:
+            print(f"Critical Parsing Error: {err}")
+            print(f"Raw evaluation response: {e_raw[:200]}...")
+            return 0.0, 0.0, 0.0, False
     
         total_sentences_len = len(sl)
         len_all_relevant_sentence_keys = len(e["all_relevant_sentence_keys"])
