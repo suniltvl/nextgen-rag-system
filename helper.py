@@ -8,6 +8,8 @@ from json_repair import repair_json
 import psycopg
 from psycopg.types.json import Jsonb
 from langchain_openai import ChatOpenAI
+import openai
+
 
 class RAGHelper:
 
@@ -126,6 +128,19 @@ Respond with valid JSON only — properly escaped quotes and newlines, no preamb
                 model=model,
                 temperature=temperature,
                 api_key=os.getenv("OPENAI_API_KEY"),
+            )
+    
+        elif provider == "openrouter":
+            return  ChatOpenAI(
+                model=model,
+                api_key=os.getenv("OPEN_ROUTER_API_KEY"),
+                base_url="https://openrouter.ai/api/v1",
+                temperature=temperature,
+                # max_tokens=2048,
+                # model_kwargs={
+                #     "top_p": 1,
+                #     "reasoning_effort": "medium",
+                # },
             )
 
         else:
@@ -267,7 +282,6 @@ Respond with valid JSON only — properly escaped quotes and newlines, no preamb
             completeness
             )
 
-            print(sql_query)
             cursor.execute(sql_query, values)
             conn.commit()
             # # print(f"{i}/{questions_count} completed")
