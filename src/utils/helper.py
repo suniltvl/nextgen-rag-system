@@ -1,5 +1,7 @@
 
 from pathlib import Path
+from datasets import load_dataset
+from langchain_core.documents import Document
 
 
 
@@ -17,17 +19,18 @@ DOMAINS = {
     'cs':
     {
         "delucionqa":"Jeep manual", 
-        "emanual": "TV manual", 
-        "techqa":"Technotes"
+        # "emanual": "TV manual", 
+        # "techqa":"Technotes"
     },
-    'gk':
-    {
-        "hotpotqa":"wiki 1",
-        "msmacro":"web pages",
-        "hagrid":"wiki 2",
-        "expertqa":"googlesearch"
-    }
+    # 'gk':
+    # {
+    #     "hotpotqa":"wiki 1",
+    #     "msmarco":"web pages",
+    #     "hagrid":"wiki 2",
+    #     "expertqa":"googlesearch"
+    # }
 }
+DATABASE_URL = "postgresql://neondb_owner:npg_ev8q6OUgwtrn@ep-shiny-unit-ad1du3mx.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require"
 
 def get_db_folder(db_type: str) -> Path:
     """
@@ -108,3 +111,66 @@ def get_vector_db(persist_directory, collection_name, embedding_function):
         )
 
     return VECTOR_DB_CACHE[key]
+
+def get_questions_table_name(param_domains):
+    """
+    Get the questions table name.
+    
+    Returns:
+        str: The questions table name
+    """
+    questions_table = "qtn"
+
+    domains_name = ""
+    for domain in param_domains.keys():
+        domains_name += f"_{domain}"
+
+    questions_table += domains_name
+    
+    return questions_table
+
+
+def get_eval_table_name(param_domains):
+    """
+    Get the evaluation table name.
+    
+    Returns:
+        str: The evaluation table name
+    """
+    eval_table = "eval"
+
+    domains_name = ""
+    for domain in param_domains.keys():
+        domains_name += f"_{domain}"
+
+    eval_table += domains_name
+    
+    return eval_table
+
+
+def get_docs(db_name: str):
+    dataset = load_dataset(DATASET_SOURCE, db_name, split=DATA_SPLIT)
+    dedup = deduplicate_data(dataset, db_name)
+    docs = [
+        Document(
+            metadata=metadata, 
+            page_content=content
+        )
+        for content, metadata in dedup.items()
+    ]
+    print(f"Loaded {len(docs)} documents from {db_name}")
+    return docs
+
+def deduplicate_data(data, doc_type):
+    data_dict = {}
+    for d in data:
+        document = " ".join(d["documents"])
+        if document in data_dict:
+            data_dict[document]["docid"].append(d["id"])
+        else:
+            data_dict[document] = {"docid":[d["id"]]}
+            
+    for k in data_dict:
+        data_dict[k]["document_type"] = doc_type
+        
+    return data_dict
