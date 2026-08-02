@@ -174,3 +174,23 @@ def deduplicate_data(data, doc_type):
         data_dict[k]["document_type"] = doc_type
         
     return data_dict
+
+def deduplicate_data_new(data, doc_type):
+    data_dict = {}
+    for d in data:
+        if hasattr(d, "page_content"):
+            document = d.page_content
+            doc_id = d.metadata.get("docid", [None])[0] if getattr(d, "metadata", None) else None
+        else:
+            document = " ".join(d["documents"])
+            doc_id = d["id"]
+        if document in data_dict:
+            if doc_id is not None:
+                data_dict[document]["docid"].append(doc_id)
+        else:
+            data_dict[document] = {"docid": [doc_id] if doc_id is not None else []}
+            
+    for k in data_dict:
+        data_dict[k]["document_type"] = doc_type
+        
+    return data_dict
