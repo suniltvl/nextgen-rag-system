@@ -3,6 +3,8 @@ from pathlib import Path
 from datasets import load_dataset
 from langchain_core.documents import Document
 
+from langchain_chroma import Chroma
+
 
 
 # Constants
