@@ -4,6 +4,10 @@ from datasets import load_dataset
 from langchain_core.documents import Document
 
 from langchain_chroma import Chroma
+import os
+
+from dotenv import load_dotenv
+load_dotenv()
 
 
 
@@ -24,15 +28,37 @@ DOMAINS = {
         # "emanual": "TV manual", 
         # "techqa":"Technotes"
     },
-    # 'gk':
-    # {
-    #     "hotpotqa":"wiki 1",
-    #     "msmarco":"web pages",
-    #     "hagrid":"wiki 2",
-    #     "expertqa":"googlesearch"
-    # }
+    'gk':
+    {
+        "hotpotqa":"wiki 1",
+        # "msmarco":"web pages",
+        # "hagrid":"wiki 2",
+        # "expertqa":"googlesearch"
+    }
 }
-DATABASE_URL = "postgresql://neondb_owner:npg_ev8q6OUgwtrn@ep-shiny-unit-ad1du3mx.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require"
+
+DOMAIN_NAME_MAPPING = {
+    "cs": "Customer Support",
+    "gk": "General Knowledge",
+}
+
+DATABASE_URL = os.getenv("LOCAL_POSTGRE_DATABASE_URL") #"postgresql://neondb_owner:npg_ev8q6OUgwtrn@ep-shiny-unit-ad1du3mx.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require"
+
+RETRIEVAL_TYPE = "dense"
+TOP_K = 5
+
+LLM_PROVIDER = "openrouter"
+LLM_API_KEY = os.getenv("OPEN_ROUTER_API_KEY")
+GEN_LLM_MODEL = "nvidia/nemotron-nano-9b-v2:free" #"openai/gpt-4o-mini"
+EVAL_LLM_MODEL = "nvidia/nemotron-3-nano-30b-a3b:free"
+
+
+
+
+
+
+
+
 
 def get_db_folder(db_type: str) -> Path:
     """
