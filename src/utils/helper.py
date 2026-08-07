@@ -25,15 +25,15 @@ DOMAINS = {
     'cs':
     {
         "delucionqa":"Jeep manual", 
-        # "emanual": "TV manual", 
-        # "techqa":"Technotes"
+        "emanual": "TV manual", 
+        "techqa":"Technotes"
     },
     'gk':
     {
         "hotpotqa":"wiki 1",
         # "msmarco":"web pages",
         # "hagrid":"wiki 2",
-        # "expertqa":"googlesearch"
+        "expertqa":"googlesearch"
     }
 }
 
@@ -49,8 +49,24 @@ TOP_K = 5
 
 LLM_PROVIDER = "openrouter"
 LLM_API_KEY = os.getenv("OPEN_ROUTER_API_KEY")
-GEN_LLM_MODEL = "nvidia/nemotron-nano-9b-v2:free" #"openai/gpt-4o-mini"
-EVAL_LLM_MODEL = "nvidia/nemotron-3-nano-30b-a3b:free"
+LLM_PREMIUM_API_KEY=os.getenv("OPEN_ROUTER_PREMIUM_API_KEY")
+GEN_LLM_MODEL = "qwen/qwen3.7-flash" #"openai/gpt-4o-mini"
+EVAL_LLM_MODEL =  "meta-llama/llama-3.1-8b-instruct"
+
+LLM_CONFIGS = [
+    {
+        "provider": LLM_PROVIDER,
+        "api_key": LLM_PREMIUM_API_KEY,
+        "gen_model": "qwen/qwen3.7-flash",
+        "eval_model": "meta-llama/llama-3.1-8b-instruct",
+    },
+    {
+        "provider": LLM_PROVIDER,
+        "api_key": LLM_PREMIUM_API_KEY,
+        "gen_model": "google/gemma-3-12b-it",
+        "eval_model": "google/gemma-4-26b-a4b-it",
+    }
+]
 
 
 
