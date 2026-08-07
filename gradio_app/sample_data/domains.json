@@ -1,0 +1,27 @@
+[
+  {
+    "id": "biomedical",
+    "name": "Biomedical Research",
+    "question_count": 10
+  },
+  {
+    "id": "customer_support",
+    "name": "Customer Support",
+    "question_count": 10
+  },
+  {
+    "id": "finance",
+    "name": "Finance",
+    "question_count": 10
+  },
+  {
+    "id": "general_knowledge",
+    "name": "General Knowledge",
+    "question_count": 10
+  },
+  {
+    "id": "legal",
+    "name": "Legal",
+    "question_count": 10
+  }
+]
