@@ -1,0 +1,59 @@
+# V1 — End-to-end baseline (proposal §7).
+# Sliding-window chunks + bge-small + Chroma + dense top-k + grounded prompt.
+# Override --domain on the CLI to run other RAGBench subsets.
+
+name: v1_baseline
+description: >-
+  V1 baseline: sliding-window chunking, bge-small-en-v1.5 embeddings,
+  in-memory Chroma index, dense top-5 retrieval, grounded prompt.
+  This is the reference config every V2..V8 experiment is compared against.
+
+data:
+  subset: covidqa       # smallest biomedical subset — good for smoke tests
+  split: train          # the only split we have downloaded locally so far
+  limit: 50             # remove for full run
+
+chunker:
+  kind: sliding_window
+  # NB: 256 words is a deliberate one-size-fits-all baseline. On covidqa
+  # (median doc = 106 words) every doc fits in one window — the retriever
+  # is degenerate. V2 sweeps chunkers; V3 introduces per-domain chunk_size.
+  # See docs/findings/v1_chunk_size_mismatch.md.
+  chunk_size: 256
+  overlap: 32
+
+embedder:
+  kind: sentence_transformer
+  # Local path — copy of BAAI/bge-small-en-v1.5. Avoids HF Hub fetch
+  # (corporate proxy intercepts the LFS CDN). Swap back to the repo id
+  # on a network where huggingface.co downloads work.
+  model_name: models/bge-small-en-v1.5
+  batch_size: 64
+  normalize: true
+
+vectorstore:
+  kind: chroma
+  collection_prefix: rag_kag_v1
+
+retriever:
+  kind: dense
+  top_k: 5
+
+# reranker omitted in V1 (added in V6)
+
+generator:
+  kind: llm
+  # Local Ollama via litellm. Use ollama_chat/* (chat endpoint) — it follows
+  # instruction prompts better than the plain /api/generate route. Swap to
+  # e.g. "anthropic/claude-haiku-4-5" or "gpt-4o-mini" via the YAML and
+  # litellm will read provider keys from .env.
+  model: ollama_chat/gemma4:e4b
+  temperature: 0.0
+  max_tokens: 512
+  prompt_template: grounded_default
+
+runtime:
+  max_workers: 4  # match OLLAMA_NUM_PARALLEL on local Ollama
+
+output_dir: experiments/runs
+seed: 42
